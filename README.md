@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kossiarou — marketing site
 
-## Getting Started
-
-First, run the development server:
+Next.js (App Router, TypeScript, Tailwind v4) implementation of the "Design site web Kossiarou"
+Claude Design project, waitlist landing page for the Kossiarou app (KryptaPay).
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Known gaps to fill in before launch
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Images are placeholders.** `public/assets/*.png` (hero, waitlist cards, CNY story) are
+  generated stand-ins, not the real photos from the design — the design-import tool's file read
+  is capped below the original PNGs' size, so they came back truncated. Re-export the originals
+  from the Design project and drop them in at the same filenames/dimensions.
+- **Bracketed placeholders** throughout the copy (`[FRAIS]`, `[COMMISSION]`, `[AVANTAGE]`,
+  `[BANQUES]`, `[E-MAIL CONTACT]`, `[WHATSAPP]`, `[STATUT RÉGLEMENTAIRE...]`) are intentional,
+  carried over from the design — fill in with real values before launch.
+- **FAQ answers** are all `[RÉPONSE À COMPLÉTER]` — the design only specified the questions.
+- **Signup form has no backend yet** — submitting shows a local confirmation message but doesn't
+  send anywhere. See the `TODO` in `src/components/site/SignupForm.tsx`.
+- **Language toggle (FR/EN) is cosmetic** — the design only defines French copy; the toggle
+  switches visual state but not content. Wire up real i18n once English copy exists.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See `kossiarou-api`, `kossiarou-infra`, and `kossiarou-mobile` for the sibling repos that make up
+the rest of the Kossiarou project.

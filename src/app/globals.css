@@ -1,26 +1,58 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-ink: #1e2233;
+  --color-ink-soft: #4a4e5c;
+  --color-gold: #e4a53c;
+  --color-gold-hover: #d8962b;
+  --color-cream: #f6f2ea;
+  --color-cream-soft: #faf7f1;
+  --color-border: #e4dfd4;
+  --color-border-soft: #ddd6c8;
+  --color-chip: #efe9de;
+  --color-chip-2: #f1ece2;
+  --color-success: #2f9e5e;
+  --color-success-soft: #e3f3e8;
+  --color-warning: #9a5f0e;
+  --color-warning-soft: #f8e7c9;
+  --color-dark-surface: #262b3d;
+  --color-dark-surface-2: #2c3144;
+  --color-dark-border: #3b4052;
+  --color-dark-text: #c9ccd5;
+  --color-dark-text-soft: #b7bac5;
+  --color-dark-text-softer: #a0a4b0;
+  --color-dark-text-body: #dcdee5;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-gold: var(--color-gold);
+  --color-gold-hover: var(--color-gold-hover);
+  --color-cream: var(--color-cream);
+  --color-cream-soft: var(--color-cream-soft);
+  --color-border: var(--color-border);
+  --color-border-soft: var(--color-border-soft);
+  --color-chip: var(--color-chip);
+  --color-chip-2: var(--color-chip-2);
+  --color-success: var(--color-success);
+  --color-success-soft: var(--color-success-soft);
+  --color-warning: var(--color-warning);
+  --color-warning-soft: var(--color-warning-soft);
+  --color-dark-surface: var(--color-dark-surface);
+  --color-dark-surface-2: var(--color-dark-surface-2);
+  --color-dark-border: var(--color-dark-border);
+  --color-dark-text: var(--color-dark-text);
+  --color-dark-text-soft: var(--color-dark-text-soft);
+  --color-dark-text-softer: var(--color-dark-text-softer);
+  --color-dark-text-body: var(--color-dark-text-body);
+  --font-sans: var(--font-sora);
+  --font-mono: var(--font-plex-mono);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sora), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
