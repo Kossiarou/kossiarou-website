@@ -57,6 +57,10 @@ export function Footer() {
             </div>
           ))}
         </div>
+        <p className="text-xs leading-[1.6] text-ink-soft">
+          Photos : Ali Mkumbwa, Gylain Omer, Yingchou Han, Joyce Busola, David Rotimi et Sandisk,
+          sur Unsplash (licence Unsplash).
+        </p>
       </div>
     </footer>
   );
