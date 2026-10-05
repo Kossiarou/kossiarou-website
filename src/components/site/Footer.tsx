@@ -1,30 +1,12 @@
+import type { Dictionary } from "@/i18n/dictionaries";
 import { Logo } from "./Logo";
 
-const COLUMNS = [
-  {
-    title: "PRODUIT",
-    links: [
-      { href: "#app", label: "L’app" },
-      { href: "#tarifs", label: "Tarifs" },
-      { href: "#listes", label: "Listes d’attente" },
-    ],
-  },
-  {
-    title: "AIDE",
-    links: [{ href: "#faq", label: "FAQ" }],
-    extra: [{ href: "mailto:contact@kossiarou.com", label: "contact@kossiarou.com" }],
-  },
-  {
-    title: "LÉGAL",
-    links: [
-      { href: "#", label: "Mentions légales" },
-      { href: "#", label: "Confidentialité" },
-      { href: "#", label: "Conditions d’utilisation" },
-    ],
-  },
-];
+// Language-neutral links added under a column, keyed by column position.
+const EXTRA_LINKS: Record<number, { href: string; label: string }[]> = {
+  1: [{ href: "mailto:contact@kossiarou.com", label: "contact@kossiarou.com" }],
+};
 
-export function Footer() {
+export function Footer({ dict }: { dict: Dictionary["footer"] }) {
   return (
     <footer>
       <div className="mx-auto flex max-w-[1200px] flex-col gap-7 px-10 pt-[52px] pb-11">
@@ -32,12 +14,12 @@ export function Footer() {
           <div className="col-span-2 flex min-w-0 flex-col gap-3">
             <Logo size="lg" />
             <p className="text-sm leading-[1.55] text-ink-soft">
-              « Kossiarou » signifie « paiement » en bariba.
+              {dict.tagline}
               <br />
-              Une application de KryptaPay.
+              {dict.taglineOwner}
             </p>
           </div>
-          {COLUMNS.map((col) => (
+          {dict.columns.map((col, i) => (
             <div key={col.title} className="flex flex-col gap-2.5 text-sm">
               <span className="text-xs font-bold tracking-[0.08em]">{col.title}</span>
               {col.links.map((link) => (
@@ -45,7 +27,7 @@ export function Footer() {
                   {link.label}
                 </a>
               ))}
-              {col.extra?.map((item) => (
+              {EXTRA_LINKS[i]?.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
@@ -57,10 +39,7 @@ export function Footer() {
             </div>
           ))}
         </div>
-        <p className="text-xs leading-[1.6] text-ink-soft">
-          Photos : Ali Mkumbwa, Gylain Omer, Yingchou Han, Joyce Busola, David Rotimi et Sandisk,
-          sur Unsplash (licence Unsplash).
-        </p>
+        <p className="text-xs leading-[1.6] text-ink-soft">{dict.photoCredit}</p>
       </div>
     </footer>
   );

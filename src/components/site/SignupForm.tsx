@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, type FormEvent } from "react";
+import type { Dictionary } from "@/i18n/dictionaries";
 
 const COUNTRY_CODES = [
   { code: "BJ", dial: "+229" },
@@ -11,19 +12,12 @@ const COUNTRY_CODES = [
   { code: "TG", dial: "+228" },
 ];
 
-const INTENTS = [
-  "Payer des fournisseurs en Chine",
-  "Envoyer de l’argent à un enfant étudiant",
-  "Voyager aux Émirats",
-  "Payer aux États-Unis",
-];
-
 const WHATSAPP_GROUPS = {
   user: "https://chat.whatsapp.com/LrMVOKBlhzQ4wUOAniwMgL?s=cl&p=i&mlu=4&ilr=4",
   amb: "https://chat.whatsapp.com/GOMZi9L59jvAGueaQITRe8?s=cl&p=i&mlu=4&ilr=4",
 };
 
-export function SignupForm() {
+export function SignupForm({ dict }: { dict: Dictionary["signup"] }) {
   const [list, setList] = useState<"user" | "amb">("user");
   const [submitted, setSubmitted] = useState(false);
   const resetTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -50,18 +44,13 @@ export function SignupForm() {
       <div className="mx-auto grid max-w-[1200px] grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] items-start gap-12 px-10 py-[88px]">
         <div className="flex flex-col gap-[18px]">
           <h2 className="text-[clamp(40px,5vw,54px)] leading-[1] tracking-[-0.03em]">
-            Soyez parmi les premiers.
+            {dict.title}
           </h2>
           <p className="max-w-[420px] text-[19px] leading-[1.5] text-dark-text">
-            Choisissez votre liste, laissez votre numéro WhatsApp, puis rejoignez le groupe
-            d’attente.
+            {dict.description}
           </p>
           <div className="mt-2 flex flex-col gap-3 text-[15px]">
-            {[
-              "Choisissez : premier utilisateur ou ambassadeur",
-              "Indiquez votre prénom, votre pays et votre numéro",
-              "Rejoignez le groupe WhatsApp d’attente de votre liste",
-            ].map((step, i) => (
+            {dict.steps.map((step, i) => (
               <div key={step} className="flex items-center gap-3">
                 <span className="flex h-[26px] w-[26px] flex-none items-center justify-center rounded-full bg-dark-surface-2 text-xs text-gold">
                   {i + 1}
@@ -82,28 +71,28 @@ export function SignupForm() {
               className={segmentClass(list === "user")}
               onClick={() => setList("user")}
             >
-              Premier utilisateur
+              {dict.firstUser}
             </button>
             <button
               type="button"
               className={segmentClass(list === "amb")}
               onClick={() => setList("amb")}
             >
-              Ambassadeur
+              {dict.ambassador}
             </button>
           </div>
 
           <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-3">
             <label className="flex flex-col gap-1.5 text-[13px] font-bold">
-              Prénom
+              {dict.firstName}
               <input
                 required
-                placeholder="Ex. Aïcha"
+                placeholder={dict.firstNamePlaceholder}
                 className="h-[46px] rounded-[10px] border border-dark-border bg-ink px-3 text-[15px] text-cream outline-none focus:border-gold"
               />
             </label>
             <label className="flex flex-col gap-1.5 text-[13px] font-bold">
-              Numéro WhatsApp
+              {dict.whatsapp}
               <div className="flex h-[46px] overflow-hidden rounded-[10px] border border-dark-border bg-ink">
                 <select className="border-r border-dark-border bg-transparent px-2 font-mono text-sm text-cream outline-none">
                   {COUNTRY_CODES.map((c) => (
@@ -114,7 +103,7 @@ export function SignupForm() {
                 </select>
                 <input
                   required
-                  placeholder="01 97 00 00 00"
+                  placeholder={dict.whatsappPlaceholder}
                   className="min-w-0 flex-1 bg-transparent px-2.5 font-mono text-sm text-cream outline-none"
                 />
               </div>
@@ -123,9 +112,9 @@ export function SignupForm() {
 
           {list === "user" && (
             <label className="flex flex-col gap-1.5 text-[13px] font-bold">
-              Vous voulez surtout
+              {dict.intentLabel}
               <select className="h-[46px] rounded-[10px] border border-dark-border bg-ink px-3 text-[15px] text-cream outline-none">
-                {INTENTS.map((intent) => (
+                {dict.intents.map((intent) => (
                   <option key={intent}>{intent}</option>
                 ))}
               </select>
@@ -137,12 +126,10 @@ export function SignupForm() {
             className="h-12 overflow-hidden rounded-xl bg-gold px-4 text-base font-bold text-ellipsis whitespace-nowrap text-ink hover:bg-gold-hover"
           >
             {submitted
-              ? "Merci ! On vous recontacte bientôt."
-              : `S’inscrire et rejoindre le groupe WhatsApp${list === "amb" ? " (ambassadeur)" : ""}`}
+              ? dict.thanks
+              : `${dict.submit}${list === "amb" ? dict.submitAmbassadorSuffix : ""}`}
           </button>
-          <span className="text-xs text-dark-text-soft">
-            Un code de parrainage ? Vous le saisirez à l’inscription dans l’app.
-          </span>
+          <span className="text-xs text-dark-text-soft">{dict.referral}</span>
         </form>
       </div>
     </section>
