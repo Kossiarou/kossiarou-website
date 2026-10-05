@@ -73,7 +73,7 @@ export function Faq() {
                 </button>
                 {open && (
                   <p className="pr-[30px] pb-[22px] text-[15px] leading-[1.6] text-ink-soft">
-                    [RÉPONSE À COMPLÉTER]
+                    Réponse à venir prochainement.
                   </p>
                 )}
               </div>

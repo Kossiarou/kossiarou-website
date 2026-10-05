@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 
 const COUNTRY_CODES = [
   { code: "BJ", dial: "+229" },
@@ -18,21 +18,31 @@ const INTENTS = [
   "Payer aux États-Unis",
 ];
 
+const WHATSAPP_GROUPS = {
+  user: "https://chat.whatsapp.com/LrMVOKBlhzQ4wUOAniwMgL?s=cl&p=i&mlu=4&ilr=4",
+  amb: "https://chat.whatsapp.com/GOMZi9L59jvAGueaQITRe8?s=cl&p=i&mlu=4&ilr=4",
+};
+
 export function SignupForm() {
   const [list, setList] = useState<"user" | "amb">("user");
   const [submitted, setSubmitted] = useState(false);
+  const resetTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const segmentClass = (active: boolean) =>
     `rounded-[9px] border-none px-2 py-[11px] text-sm font-bold ${
       active ? "bg-cream text-ink" : "bg-transparent text-dark-text"
     }`;
 
-  // TODO: no waitlist backend/webhook exists yet — wire this up to whatever
-  // collects signups (see kossiarou-api's provider stubs for the same
-  // "not wired up yet" pattern used elsewhere in this project).
+  // TODO: no backend/webhook exists yet to store signup details (name,
+  // country, intent) — see kossiarou-api's provider stubs for the same
+  // "not wired up yet" pattern used elsewhere in this project. The WhatsApp
+  // group redirect below works today regardless.
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitted(true);
+    window.open(WHATSAPP_GROUPS[list], "_blank", "noopener,noreferrer");
+    if (resetTimeout.current) clearTimeout(resetTimeout.current);
+    resetTimeout.current = setTimeout(() => setSubmitted(false), 4000);
   }
 
   return (
@@ -111,14 +121,16 @@ export function SignupForm() {
             </label>
           </div>
 
-          <label className="flex flex-col gap-1.5 text-[13px] font-bold">
-            Vous voulez surtout
-            <select className="h-[46px] rounded-[10px] border border-dark-border bg-ink px-3 text-[15px] text-cream outline-none">
-              {INTENTS.map((intent) => (
-                <option key={intent}>{intent}</option>
-              ))}
-            </select>
-          </label>
+          {list === "user" && (
+            <label className="flex flex-col gap-1.5 text-[13px] font-bold">
+              Vous voulez surtout
+              <select className="h-[46px] rounded-[10px] border border-dark-border bg-ink px-3 text-[15px] text-cream outline-none">
+                {INTENTS.map((intent) => (
+                  <option key={intent}>{intent}</option>
+                ))}
+              </select>
+            </label>
+          )}
 
           <button
             type="submit"

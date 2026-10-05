@@ -43,15 +43,6 @@ const TIERS = [
   },
 ];
 
-const FEE_ROWS = [
-  { op: "Dépôt Mobile Money", fee: "[FRAIS]", delay: "Instantané" },
-  { op: "Dépôt bancaire", fee: "[FRAIS]", delay: "Selon la banque, jusqu’à 24 h" },
-  { op: "Conversion XOF → EUR / USD / CNY / AED", fee: "[FRAIS]", delay: "Instantanée" },
-  { op: "Envoi à un bénéficiaire via compte bancaire", fee: "[FRAIS]", delay: "Selon la banque, jusqu’à 24 h" },
-  { op: "Paiement par carte (en ligne ou sur place)", fee: "Sans frais", delay: "Immédiat", feeFree: true },
-  { op: "Retrait vers Mobile Money ou banque", fee: "[FRAIS]", delay: "Mobile Money : instantané · banque : jusqu’à 24 h" },
-];
-
 export function Pricing() {
   return (
     <section id="tarifs" className="border-b border-border">
@@ -101,32 +92,6 @@ export function Pricing() {
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="mt-1 overflow-x-auto rounded-2xl border border-border bg-white">
-          <div className="flex min-w-[640px] flex-col text-[15px]">
-            <div className="grid grid-cols-[1.6fr_0.5fr_1.4fr] border-b border-border px-[18px] py-4 text-xs font-bold tracking-[0.08em] text-ink-soft">
-              <span>OPÉRATION</span>
-              <span>FRAIS</span>
-              <span>DÉLAI</span>
-            </div>
-            {FEE_ROWS.map((row, i) => (
-              <div
-                key={row.op}
-                className={`grid grid-cols-[1.6fr_0.5fr_1.4fr] px-[18px] py-3.5 ${
-                  i < FEE_ROWS.length - 1 ? "border-b border-border" : ""
-                }`}
-              >
-                <span>{row.op}</span>
-                <span
-                  className={row.feeFree ? "font-bold text-success" : "font-mono text-ink-soft"}
-                >
-                  {row.fee}
-                </span>
-                <span>{row.delay}</span>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>

@@ -12,7 +12,7 @@ const COLUMNS = [
   {
     title: "AIDE",
     links: [{ href: "#faq", label: "FAQ" }],
-    extra: ["[E-MAIL CONTACT]", "[WHATSAPP]"],
+    extra: [{ href: "mailto:contact@kossiarou.com", label: "contact@kossiarou.com" }],
   },
   {
     title: "LÉGAL",
@@ -46,22 +46,16 @@ export function Footer() {
                 </a>
               ))}
               {col.extra?.map((item) => (
-                <span key={item} className="font-mono text-[13px] text-ink-soft">
-                  {item}
-                </span>
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="font-mono text-[13px] text-ink-soft underline"
+                >
+                  {item.label}
+                </a>
               ))}
             </div>
           ))}
-        </div>
-        <div className="flex flex-col gap-1.5 text-xs leading-[1.6] text-ink-soft">
-          <p>
-            Kossiarou est un service de KryptaPay. [STATUT RÉGLEMENTAIRE ET PARTENAIRES AGRÉÉS À
-            COMPLÉTER]. © 2026 KryptaPay.
-          </p>
-          <p>
-            Photos : Ali Mkumbwa, Gylain Omer, Yingchou Han, Joyce Busola, David Rotimi et Sandisk,
-            sur Unsplash (licence Unsplash).
-          </p>
         </div>
       </div>
     </footer>
