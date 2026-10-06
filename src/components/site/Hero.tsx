@@ -52,7 +52,14 @@ export function Hero({ dict }: { dict: Dictionary["hero"] }) {
           <div className="relative h-[432px] w-[500px] max-w-full">
             <div className="absolute inset-x-0 bottom-0 h-[250px] rounded-t-[250px] bg-gold" />
             <div className="absolute bottom-0 left-1/2 h-[432px] w-[360px] max-w-[74%] -translate-x-1/2 overflow-hidden rounded-t-[180px] shadow-[0_20px_40px_rgba(30,34,51,0.18)]">
-              <Image src="/assets/hero.png" alt={dict.imageAlt} fill className="object-cover" priority />
+              <Image
+                src="/assets/hero.png"
+                alt={dict.imageAlt}
+                fill
+                sizes="(max-width: 500px) 74vw, 360px"
+                className="object-cover"
+                priority
+              />
             </div>
             <div className="absolute right-0 bottom-[176px] flex flex-col gap-1.5 rounded-2xl bg-cream-soft p-3.5 shadow-[0_12px_30px_rgba(30,34,51,0.16)]">
               <span className="text-xs text-ink-soft">{dict.conversionLabel}</span>
