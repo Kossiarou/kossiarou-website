@@ -508,6 +508,15 @@ export const fr = {
     referral: "Un code de parrainage ? Vous le saisirez à l’inscription dans l’app.",
   },
 
+  notFound: {
+    metaTitle: "Page introuvable — Kossiarou",
+    code: "404",
+    title: "Cette page n’existe pas.",
+    text: "Le lien est peut-être incorrect, ou la page a été déplacée. Revenez à l’accueil ou rejoignez une liste d’attente.",
+    home: "Retour à l’accueil",
+    waitlist: "Rejoindre une liste d’attente",
+  },
+
   footer: {
     tagline: "« Kossiarou » signifie « paiement » en bariba.",
     taglineOwner: "Une application de KryptaPay.",

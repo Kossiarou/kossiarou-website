@@ -511,6 +511,15 @@ export const en: Dictionary = {
     referral: "Got a referral code? You’ll enter it when you sign up in the app.",
   },
 
+  notFound: {
+    metaTitle: "Page not found — Kossiarou",
+    code: "404",
+    title: "This page doesn’t exist.",
+    text: "The link may be wrong, or the page may have moved. Go back to the home page or join a waitlist.",
+    home: "Back to home",
+    waitlist: "Join a waitlist",
+  },
+
   footer: {
     tagline: "“Kossiarou” means “payment” in Bariba.",
     taglineOwner: "An app by KryptaPay.",
