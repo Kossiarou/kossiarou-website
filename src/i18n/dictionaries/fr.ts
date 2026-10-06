@@ -5,6 +5,9 @@ export const fr = {
     title: "Kossiarou — Vos francs CFA voyagent. Vous aussi.",
     description:
       "Kossiarou convertit instantanément votre argent en euros, dollars, yuans ou dirhams. Payez vos fournisseurs par virement, voyagez avec votre carte, envoyez de l'argent à vos proches.",
+    ogTitle: "Kossiarou",
+    ogDescription: "Vos francs CFA voyagent. Vous aussi.",
+    ogImageAlt: "Logo Kossiarou et le message : Vos francs CFA voyagent. Vous aussi.",
   },
 
   header: {
@@ -17,6 +20,7 @@ export const fr = {
     ],
     signup: "S’inscrire",
     languageLabel: "Langue",
+    menu: "Menu",
   },
 
   hero: {
@@ -33,6 +37,7 @@ export const fr = {
     paymentDelivered: "Paiement livré",
     paymentAmount: "3 000,00 CNY",
     paymentBeneficiary: "Yiwu Trading Co.",
+    imageAlt: "Commerçante souriante dans sa boutique, téléphone à la main",
   },
 
   waitlist: {
@@ -49,9 +54,10 @@ export const fr = {
         bullets: [
           "Accès à l’app dès l’ouverture dans votre pays",
           "Groupe WhatsApp d’attente : nouvelles et dates en avant-première",
-          "Avantage premiers utilisateurs : [AVANTAGE]",
+          "Un avantage premiers utilisateurs, dévoilé avant l’ouverture",
         ],
         cta: "M’inscrire comme premier utilisateur",
+        imageAlt: "Un homme et une femme regardent ensemble l’écran d’un smartphone",
       },
       {
         tag: "Liste 2",
@@ -59,11 +65,12 @@ export const fr = {
         description:
           "Vous animez un marché, une école, une association ou une communauté en ligne ? Faites connaître Kossiarou autour de vous.",
         bullets: [
-          "Commission : [COMMISSION] par client actif",
+          "Une commission par client actif, montant communiqué avant l’ouverture",
           "Lien personnel, kit de communication et QR code",
           "Tableau de bord et référent Kossiarou dédié",
         ],
         cta: "Candidater comme ambassadeur",
+        imageAlt: "Deux jeunes femmes rient en regardant un téléphone, accoudées à une rambarde",
       },
     ],
   },
@@ -73,7 +80,7 @@ export const fr = {
     title: "Là où votre argent doit aller, Kossiarou l’emmène.",
     description:
       "Vous déposez en francs CFA depuis vos comptes, la conversion est instantanée, puis vous payez par virement bancaire, avec la facture de la commande, ou directement avec votre carte.",
-    tabsLabel: "Destinations",
+    tabsLabel: "Trajets",
     disclaimer:
       "Scénarios d’illustration. Taux de démonstration (EUR : parité fixe 655,957 FCFA). Frais et délais définitifs communiqués au lancement.",
     scenarios: [
@@ -92,6 +99,7 @@ export const fr = {
           },
           { title: "Sur place", detail: "Paiements par carte bancaire, sans frais" },
         ],
+        imageAlt: "Voyageuse souriante au téléphone dans la salle d’attente d’un aéroport",
         receipt: {
           status: "Livré",
           amount: "3 000,00 CNY",
@@ -105,51 +113,53 @@ export const fr = {
       },
       {
         label: "Un enfant étudiant",
-        title: "Payer les frais de scolarité sans stress",
-        persona: "Marcel · parent, Porto-Novo → Lyon, France",
+        title: "Payer la scolarité à Lyon, depuis Ouagadougou",
+        persona: "Moussa · parent d’étudiante, Ouagadougou → Lyon, France",
         description:
-          "Marcel convertit ses francs CFA en euros au taux fixe et règle la scolarité de sa fille directement sur le compte de l’université. Chaque mois, il lui envoie son allocation sur son compte en euros.",
+          "Moussa convertit ses francs CFA en euros à la parité fixe et règle les frais de scolarité de sa fille par virement bancaire, directement à l’école, facture d’inscription jointe. Chaque mois, il lui envoie aussi de quoi payer son loyer et ses courses.",
         steps: [
-          { title: "Dépôt", detail: "330 000 FCFA depuis son compte bancaire, instantané" },
-          { title: "Conversion", detail: "XOF → EUR à parité fixe, 655,957 FCFA pour 1 €" },
+          { title: "Dépôt", detail: "655 957 FCFA depuis son compte bancaire" },
+          { title: "Conversion", detail: "XOF → EUR, parité fixe : 655,957 FCFA pour 1 €" },
           {
             title: "Virement à l’école",
-            detail: "Sur le RIB de l’université, appel de frais joint",
+            detail: "Frais de scolarité, facture d’inscription jointe",
           },
-          { title: "Allocation mensuelle", detail: "Envoyée à sa fille sur son compte en euros" },
+          { title: "Chaque mois", detail: "Un virement sur le compte bancaire de sa fille" },
         ],
+        imageAlt: "Étudiante souriante sur son campus, téléphone à la main",
         receipt: {
           status: "Livré",
-          amount: "500,00 EUR",
-          debited: "≈ 327 979 FCFA débités",
+          amount: "1 000,00 EUR",
+          debited: "= 655 957 FCFA convertis · parité fixe",
           rows: [
-            { label: "Bénéficiaire", value: "Université de Lyon" },
-            { label: "Justificatif", value: "Appel de frais de scolarité" },
+            { label: "Bénéficiaire", value: "Institut Horizon, Lyon" },
+            { label: "Justificatif", value: "Facture d’inscription" },
             { label: "Délai", value: "Selon la banque, jusqu’à 24 h" },
           ],
         },
       },
       {
         label: "Les Émirats",
-        title: "Commander à Dubaï, payer depuis Cotonou",
-        persona: "Fatou · revendeuse, Cotonou → Dubaï, Émirats arabes unis",
+        title: "Payer un fournisseur à Dubaï, sans quitter Abidjan",
+        persona: "Koffi · importateur, Abidjan → Dubaï, Émirats arabes unis",
         description:
-          "Fatou convertit ses francs CFA en dirhams et règle son fournisseur de Dubaï par virement bancaire, facture à l’appui. Lors de ses déplacements, elle paie l’hôtel et ses achats avec sa carte, sans frais.",
+          "Koffi importe des téléphones et des accessoires. Il convertit ses francs CFA en dirhams et paie son fournisseur de Dubaï par virement bancaire, facture de la commande jointe. Quand il se rend sur place, il règle ses dépenses avec sa carte, sans frais.",
         steps: [
-          { title: "Dépôt", detail: "330 000 FCFA depuis son MTN MoMo, instantané" },
+          { title: "Dépôt", detail: "1 500 000 FCFA depuis son compte Wave, instantané" },
           { title: "Conversion", detail: "XOF → AED, instantanée" },
           {
             title: "Virement au fournisseur",
-            detail: "Depuis le Bénin, facture de la commande jointe",
+            detail: "Vers sa banque à Dubaï, facture de la commande jointe",
           },
           { title: "Sur place", detail: "Paiements par carte bancaire, sans frais" },
         ],
+        imageAlt: "Commerçant souriant dans un entrepôt de marchandises, téléphone à la main",
         receipt: {
           status: "Livré",
-          amount: "2 000,00 AED",
-          debited: "≈ 326 000 FCFA débités",
+          amount: "9 000,00 AED",
+          debited: "≈ 1 368 000 FCFA débités",
           rows: [
-            { label: "Bénéficiaire", value: "Al Noor Trading LLC" },
+            { label: "Bénéficiaire", value: "Al Noor General Trading" },
             { label: "Justificatif", value: "Facture de la commande" },
             { label: "Délai", value: "Selon la banque, jusqu’à 24 h" },
           ],
@@ -157,27 +167,28 @@ export const fr = {
       },
       {
         label: "Les États-Unis",
-        title: "Payer vos abonnements et achats en dollars",
-        persona: "Koffi · développeur, Cotonou → États-Unis",
+        title: "Des dollars pour travailler avec les États-Unis",
+        persona: "Fatou · développeuse freelance, Dakar → clients aux États-Unis",
         description:
-          "Koffi convertit ses francs CFA en dollars et alimente sa carte virtuelle USD pour ses outils en ligne et ses achats. Il reçoit aussi les paiements de ses clients américains directement sur son wallet USD.",
+          "Les clients américains de Fatou la paient par virement sur son compte USD, crédité sur son wallet en dollars. Elle règle ses abonnements et ses achats en ligne avec sa carte virtuelle USD, sans frais, rechargée depuis son solde XOF si besoin.",
         steps: [
-          { title: "Dépôt", detail: "480 000 FCFA depuis son MTN MoMo, instantané" },
-          { title: "Conversion", detail: "XOF → USD, instantanée" },
+          { title: "Réception", detail: "Virement d’un client américain sur son compte USD" },
+          { title: "Wallet USD", detail: "Montant crédité sur son wallet en dollars" },
           {
             title: "Carte virtuelle USD",
-            detail: "Rechargée automatiquement depuis son solde XOF",
+            detail: "Abonnements et achats en ligne, sans frais",
           },
-          { title: "Réception", detail: "Virements des États-Unis crédités sur son wallet" },
+          { title: "Recharge auto", detail: "Si besoin, la carte se recharge depuis son solde XOF" },
         ],
+        imageAlt: "Jeune femme travaillant sur son ordinateur portable, téléphone à côté",
         receipt: {
-          status: "Crédité",
-          amount: "800,00 USD",
-          debited: "≈ 480 000 FCFA débités",
+          status: "Reçu",
+          amount: "1 200,00 USD",
+          debited: "Crédité sur le wallet USD",
           rows: [
-            { label: "Destination", value: "Carte virtuelle USD" },
-            { label: "Recharge", value: "Automatique depuis le solde XOF" },
-            { label: "Délai", value: "Instantané" },
+            { label: "Émetteur", value: "Northfield Studio LLC" },
+            { label: "Compte", value: "Compte USD à son nom" },
+            { label: "Délai", value: "Selon la banque de l’émetteur" },
           ],
         },
       },
@@ -261,7 +272,7 @@ export const fr = {
         title: "Compte XOF",
         description:
           "Déposez et retirez depuis vos comptes Mobile Money et bancaires à votre nom. Ajoutez-en autant que vous voulez.",
-        note: "MTN MoMo · Moov · Orange · Wave · [BANQUES]",
+        note: "MTN MoMo · Moov · Orange · Wave · banques bientôt",
       },
       {
         title: "Conversion instantanée",
@@ -326,6 +337,42 @@ export const fr = {
     description:
       "Tout le monde commence en Standard. Commerçants et entrepreneurs peuvent demander un plafond plus élevé en justifiant l’origine de leurs fonds et leur activité.",
     upTo: "JUSQU’À",
+    feesTitle: "Frais et délais",
+    feesIntro: "Montants des frais communiqués avant l’ouverture.",
+    feesHeaders: { operation: "OPÉRATION", fee: "FRAIS", delay: "DÉLAI" },
+    feesRows: [
+      { operation: "Dépôt Mobile Money", fee: "[FRAIS]", free: false, delay: "Instantané" },
+      {
+        operation: "Dépôt bancaire",
+        fee: "[FRAIS]",
+        free: false,
+        delay: "Selon la banque, jusqu’à 24 h",
+      },
+      {
+        operation: "Conversion XOF → EUR / USD / CNY / AED",
+        fee: "[FRAIS]",
+        free: false,
+        delay: "Instantanée",
+      },
+      {
+        operation: "Envoi à un bénéficiaire via compte bancaire",
+        fee: "[FRAIS]",
+        free: false,
+        delay: "Selon la banque, jusqu’à 24 h",
+      },
+      {
+        operation: "Paiement par carte (en ligne ou sur place)",
+        fee: "Sans frais",
+        free: true,
+        delay: "Immédiat",
+      },
+      {
+        operation: "Retrait vers Mobile Money ou banque",
+        fee: "[FRAIS]",
+        free: false,
+        delay: "Mobile Money : instantané · banque : jusqu’à 24 h",
+      },
+    ],
     tiers: [
       {
         name: "Standard",
@@ -369,6 +416,31 @@ export const fr = {
     ],
   },
 
+  trust: {
+    eyebrow: "Confiance",
+    title: "Avant de nous confier votre argent.",
+    cards: [
+      {
+        label: "Statut réglementaire",
+        title: "Un service de KryptaPay",
+        text: "Notre statut réglementaire et nos agréments seront publiés ici avant l’ouverture.",
+        action: "Bientôt",
+      },
+      {
+        label: "Partenaires agréés",
+        title: "Des partenaires agréés",
+        text: "Les banques et établissements de paiement partenaires seront présentés ici avant l’ouverture.",
+        action: "Bientôt",
+      },
+      {
+        label: "Témoignages",
+        title: "Leurs mots, bientôt ici",
+        text: "Les premiers retours d’utilisateurs seront publiés après l’ouverture, avec leur accord.",
+        action: "Rejoindre une liste d’attente",
+      },
+    ],
+  },
+
   faq: {
     eyebrow: "Sécurité et questions",
     title: "Votre argent, sous contrôle.",
@@ -398,7 +470,14 @@ export const fr = {
       "Combien de temps prend un virement ?",
       "Que se passe-t-il après mon inscription ?",
     ],
-    answerSoon: "Réponse à venir prochainement.",
+    answers: [
+      "Au lancement : Bénin, Burkina Faso, Côte d’Ivoire, Mali, Sénégal et Togo. Les dates d’ouverture sont annoncées en avant-première dans le groupe WhatsApp d’attente.",
+      "Depuis votre solde en francs CFA (XOF), vous convertissez en euros, dollars américains, yuans et dirhams. Chaque devise a son propre wallet.",
+      "Une pièce d’identité et un selfie, pour chaque client. Pour un plafond Pro ou Business, des justificatifs sur l’origine de vos fonds et votre activité vous sont demandés.",
+      "Les deux. Depuis chez vous, vous payez vos fournisseurs par virement bancaire, facture de la commande jointe. Sur place, vous payez avec votre carte virtuelle, sans frais.",
+      "Selon la banque du bénéficiaire, jusqu’à 24 h. Vous suivez chaque virement dans l’app, de l’envoi à la livraison.",
+      "Vous rejoignez le groupe WhatsApp d’attente de votre liste. Vous y recevez les nouvelles et la date d’ouverture dans votre pays en avant-première.",
+    ],
   },
 
   signup: {
@@ -454,6 +533,8 @@ export const fr = {
         ],
       },
     ],
+    legal:
+      "Kossiarou est un service de KryptaPay. Statut réglementaire et partenaires agréés publiés avant l’ouverture. © 2026 KryptaPay.",
     photoCredit:
       "Photos : Ali Mkumbwa, Gylain Omer, Yingchou Han, Joyce Busola, David Rotimi et Sandisk, sur Unsplash (licence Unsplash).",
   },

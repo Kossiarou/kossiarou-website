@@ -39,7 +39,10 @@ export function Footer({ dict }: { dict: Dictionary["footer"] }) {
             </div>
           ))}
         </div>
-        <p className="text-xs leading-[1.6] text-ink-soft">{dict.photoCredit}</p>
+        <div className="flex flex-col gap-2">
+          <p className="text-xs leading-[1.6] text-ink-soft">{dict.legal}</p>
+          <p className="text-xs leading-[1.6] text-ink-soft">{dict.photoCredit}</p>
+        </div>
       </div>
     </footer>
   );

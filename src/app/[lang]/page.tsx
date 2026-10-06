@@ -9,6 +9,7 @@ import { AppShowcase } from "@/components/site/AppShowcase";
 import { Features } from "@/components/site/Features";
 import { OpenAccountSteps } from "@/components/site/OpenAccountSteps";
 import { Pricing } from "@/components/site/Pricing";
+import { Trust } from "@/components/site/Trust";
 import { Faq } from "@/components/site/Faq";
 import { SignupForm } from "@/components/site/SignupForm";
 import { Footer } from "@/components/site/Footer";
@@ -28,6 +29,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       <Features dict={dict.features} />
       <OpenAccountSteps dict={dict.steps} />
       <Pricing dict={dict.pricing} />
+      <Trust dict={dict.trust} />
       <Faq dict={dict.faq} />
       <SignupForm dict={dict.signup} />
       <Footer dict={dict.footer} />
