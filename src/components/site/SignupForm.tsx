@@ -65,7 +65,7 @@ export function SignupForm({ dict }: { dict: Dictionary["signup"] }) {
           onSubmit={handleSubmit}
           className="flex flex-col gap-3.5 rounded-[20px] border border-dark-border bg-dark-surface p-[22px]"
         >
-          <div className="grid grid-cols-2 gap-1 rounded-xl bg-ink p-1">
+          <div className="grid grid-cols-1 gap-1 rounded-xl bg-ink p-1 min-[360px]:grid-cols-2">
             <button
               type="button"
               className={segmentClass(list === "user")}

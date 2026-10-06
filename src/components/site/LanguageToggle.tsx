@@ -19,7 +19,7 @@ export function LanguageToggle({ lang, label }: { lang: Locale; label: string })
   };
 
   const pillClass = (active: boolean) =>
-    `rounded-full px-2 py-1 text-xs font-bold cursor-pointer sm:px-2.5 ${
+    `relative rounded-full px-2 py-1 text-xs font-bold cursor-pointer before:absolute before:inset-x-0 before:-inset-y-2 sm:px-2.5 ${
       active ? "bg-ink text-cream" : "bg-transparent text-ink-soft"
     }`;
 

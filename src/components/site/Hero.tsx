@@ -35,13 +35,13 @@ export function Hero({ dict }: { dict: Dictionary["hero"] }) {
           <div className="mt-1.5 flex flex-wrap gap-2.5">
             <a
               href="#listes"
-              className="whitespace-nowrap rounded-xl bg-gold px-[22px] py-3.5 text-base font-bold text-ink hover:bg-gold-hover"
+              className="rounded-xl bg-gold px-[22px] py-3.5 text-base font-bold text-ink hover:bg-gold-hover min-[400px]:whitespace-nowrap"
             >
               {dict.primaryCta}
             </a>
             <a
               href="#listes"
-              className="whitespace-nowrap rounded-xl border border-border-soft bg-cream-soft px-[22px] py-[13px] text-base font-bold hover:bg-white"
+              className="rounded-xl border border-border-soft bg-cream-soft px-[22px] py-[13px] text-base font-bold hover:bg-white min-[400px]:whitespace-nowrap"
             >
               {dict.secondaryCta}
             </a>
