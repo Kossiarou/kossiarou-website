@@ -5,8 +5,7 @@ import Image from "next/image";
 import type { Dictionary } from "@/i18n/dictionaries";
 
 // Language-neutral settings per scenario, in the same order as `dict.scenarios`.
-// story-eur/aed/usd.png are temporary placeholders: replace the files (same names, 800x600+,
-// warm color grading) with real photos.
+// Photos live in public/assets (story-cny/eur/aed/usd.png): to swap one, keep the file name.
 const SCENARIO_META = [
   { code: "CNY", ref: "KSR-2026-0948", image: "/assets/story-cny.png" },
   { code: "EUR", ref: "KSR-2026-1207", image: "/assets/story-eur.png" },

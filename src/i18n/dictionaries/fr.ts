@@ -128,7 +128,7 @@ export const fr = {
           },
           { title: "Chaque mois", detail: "Un virement sur le compte bancaire de sa fille" },
         ],
-        imageAlt: "Étudiante souriante sur son campus, téléphone à la main",
+        imageAlt: "Étudiante souriante, assise sur un banc, son ordinateur portable sur les genoux",
         receipt: {
           status: "Livré",
           amount: "1 000,00 EUR",
@@ -155,7 +155,7 @@ export const fr = {
           },
           { title: "Sur place", detail: "Paiements par carte bancaire, sans frais" },
         ],
-        imageAlt: "Commerçant souriant dans un entrepôt de marchandises, téléphone à la main",
+        imageAlt: "Homme souriant en chemise, assis sur un muret, sa veste à la main",
         receipt: {
           status: "Livré",
           amount: "9 000,00 AED",
@@ -182,7 +182,7 @@ export const fr = {
           },
           { title: "Recharge auto", detail: "Si besoin, la carte se recharge depuis son solde XOF" },
         ],
-        imageAlt: "Jeune femme travaillant sur son ordinateur portable, téléphone à côté",
+        imageAlt: "Jeune femme concentrée devant son ordinateur portable, près d’une fenêtre",
         receipt: {
           status: "Reçu",
           amount: "1 200,00 USD",
