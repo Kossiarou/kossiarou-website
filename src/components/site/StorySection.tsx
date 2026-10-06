@@ -5,12 +5,13 @@ import Image from "next/image";
 import type { Dictionary } from "@/i18n/dictionaries";
 
 // Language-neutral settings per scenario, in the same order as `dict.scenarios`.
-// Only story-cny.png exists for now: every scenario reuses it as a placeholder.
+// story-eur/aed/usd.png are temporary placeholders: replace the files (same names, 800x600+,
+// warm color grading) with real photos.
 const SCENARIO_META = [
   { code: "CNY", ref: "KSR-2026-0948", image: "/assets/story-cny.png" },
-  { code: "EUR", ref: "KSR-2026-1204", image: "/assets/story-cny.png" },
-  { code: "AED", ref: "KSR-2026-1377", image: "/assets/story-cny.png" },
-  { code: "USD", ref: "KSR-2026-1561", image: "/assets/story-cny.png" },
+  { code: "EUR", ref: "KSR-2026-1207", image: "/assets/story-eur.png" },
+  { code: "AED", ref: "KSR-2026-1531", image: "/assets/story-aed.png" },
+  { code: "USD", ref: "KSR-2026-2277", image: "/assets/story-usd.png" },
 ];
 
 export function StorySection({ dict }: { dict: Dictionary["story"] }) {
@@ -46,7 +47,7 @@ export function StorySection({ dict }: { dict: Dictionary["story"] }) {
                 className={`flex cursor-pointer items-center gap-2.5 rounded-full py-1.5 pr-4 pl-1.5 text-[15px] font-bold transition-colors ${
                   active
                     ? "bg-cream text-ink"
-                    : "border border-dark-border text-cream hover:bg-dark-surface"
+                    : "border border-dark-border text-cream hover:border-gold"
                 }`}
               >
                 <span
@@ -96,7 +97,7 @@ export function StorySection({ dict }: { dict: Dictionary["story"] }) {
 
           <div className="relative min-h-[560px] pb-[120px]">
             <div className="relative h-[430px] w-full overflow-hidden rounded-[18px]">
-              <Image src={meta.image} alt="" fill className="object-cover" />
+              <Image src={meta.image} alt={scenario.imageAlt} fill className="object-cover" />
             </div>
             <div className="absolute inset-x-4 bottom-0 flex flex-col gap-3 rounded-[18px] bg-cream px-5 pt-5 pb-4 text-ink shadow-[0_20px_50px_rgba(0,0,0,0.35)]">
               <div className="flex items-center justify-between">

@@ -1,6 +1,19 @@
 import type { Dictionary } from "@/i18n/dictionaries";
 
-export function Pricing({ dict }: { dict: Dictionary["pricing"] }) {
+type Pricing = Dictionary["pricing"];
+
+function FeeValue({ row }: { row: Pricing["feesRows"][number] }) {
+  return row.free ? (
+    <span className="font-bold text-success">{row.fee}</span>
+  ) : (
+    <span className="font-mono text-ink-soft">{row.fee}</span>
+  );
+}
+
+export function Pricing({ dict }: { dict: Pricing }) {
+  const lastRow = dict.feesRows.length - 1;
+  const wideRow = "grid grid-cols-[1.6fr_0.5fr_1.4fr] gap-4 px-[18px]";
+
   return (
     <section id="tarifs" className="border-b border-border">
       <div className="mx-auto flex max-w-[1200px] flex-col gap-[18px] px-10 py-[88px]">
@@ -49,6 +62,73 @@ export function Pricing({ dict }: { dict: Dictionary["pricing"] }) {
               </div>
             );
           })}
+        </div>
+
+        <div className="mt-4 flex flex-col gap-1.5">
+          <h3 className="text-[23px] tracking-[-0.02em]">{dict.feesTitle}</h3>
+          <p className="text-[15px] leading-[1.5] text-ink-soft">{dict.feesIntro}</p>
+        </div>
+
+        <div
+          role="table"
+          aria-label={dict.feesTitle}
+          className="mt-1 overflow-hidden rounded-2xl border border-border bg-white"
+        >
+          {/* From 640px: 3-column table. */}
+          <div className="hidden flex-col text-[15px] sm:flex">
+            <div
+              role="row"
+              className={`${wideRow} border-b border-border py-4 text-xs font-bold tracking-[0.08em] text-ink-soft`}
+            >
+              <span role="columnheader">{dict.feesHeaders.operation}</span>
+              <span role="columnheader">{dict.feesHeaders.fee}</span>
+              <span role="columnheader">{dict.feesHeaders.delay}</span>
+            </div>
+            {dict.feesRows.map((row, i) => (
+              <div
+                key={row.operation}
+                role="row"
+                className={`${wideRow} py-3.5 ${i < lastRow ? "border-b border-border" : ""}`}
+              >
+                <span role="cell">{row.operation}</span>
+                <span role="cell">
+                  <FeeValue row={row} />
+                </span>
+                <span role="cell">{row.delay}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Below 640px: stacked list, no horizontal scroll. */}
+          <div className="flex flex-col sm:hidden">
+            {dict.feesRows.map((row, i) => (
+              <div
+                key={row.operation}
+                role="row"
+                className={`flex flex-col gap-2 px-[18px] py-4 ${
+                  i < lastRow ? "border-b border-border" : ""
+                }`}
+              >
+                <span role="cell" className="font-bold">
+                  {row.operation}
+                </span>
+                <div className="flex gap-2.5 text-sm">
+                  <span className="w-[52px] flex-none pt-0.5 text-[11px] font-bold tracking-[0.08em] text-ink-soft">
+                    {dict.feesHeaders.fee}
+                  </span>
+                  <span role="cell">
+                    <FeeValue row={row} />
+                  </span>
+                </div>
+                <div className="flex gap-2.5 text-sm">
+                  <span className="w-[52px] flex-none pt-0.5 text-[11px] font-bold tracking-[0.08em] text-ink-soft">
+                    {dict.feesHeaders.delay}
+                  </span>
+                  <span role="cell">{row.delay}</span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

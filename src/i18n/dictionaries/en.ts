@@ -7,6 +7,10 @@ export const en: Dictionary = {
     title: "Kossiarou — Your CFA francs travel. So can you.",
     description:
       "Kossiarou instantly converts your money into euros, dollars, yuan or dirhams. Pay your suppliers by bank transfer, travel with your card, send money to your loved ones.",
+    ogTitle: "Kossiarou",
+    ogDescription: "Your CFA francs travel. So can you.",
+    ogImageAlt:
+      "Kossiarou logo and the message “Vos francs CFA voyagent. Vous aussi.” (Your CFA francs travel. So can you.)",
   },
 
   header: {
@@ -19,6 +23,7 @@ export const en: Dictionary = {
     ],
     signup: "Sign up",
     languageLabel: "Language",
+    menu: "Menu",
   },
 
   hero: {
@@ -35,6 +40,7 @@ export const en: Dictionary = {
     paymentDelivered: "Payment delivered",
     paymentAmount: "3,000.00 CNY",
     paymentBeneficiary: "Yiwu Trading Co.",
+    imageAlt: "Smiling shopkeeper in her shop, phone in hand",
   },
 
   waitlist: {
@@ -51,9 +57,10 @@ export const en: Dictionary = {
         bullets: [
           "Access to the app as soon as we open in your country",
           "Waiting WhatsApp group: news and dates before everyone else",
-          "First-user perk: [BENEFIT]",
+          "A first-user perk, revealed before we open",
         ],
         cta: "Sign up as a first user",
+        imageAlt: "A man and a woman look at a smartphone screen together",
       },
       {
         tag: "List 2",
@@ -61,11 +68,12 @@ export const en: Dictionary = {
         description:
           "Do you run a market, a school, an association or an online community? Spread the word about Kossiarou around you.",
         bullets: [
-          "Commission: [COMMISSION] per active customer",
+          "A commission per active customer, amount announced before we open",
           "Personal link, communication kit and QR code",
           "Dashboard and a dedicated Kossiarou contact",
         ],
         cta: "Apply as an ambassador",
+        imageAlt: "Two young women laugh while looking at a phone, leaning on a railing",
       },
     ],
   },
@@ -75,7 +83,7 @@ export const en: Dictionary = {
     title: "Wherever your money needs to go, Kossiarou takes it there.",
     description:
       "You deposit in CFA francs from your accounts, the conversion is instant, then you pay by bank transfer, with the order invoice, or directly with your card.",
-    tabsLabel: "Destinations",
+    tabsLabel: "Journeys",
     disclaimer:
       "Illustrative scenarios. Demo rates (EUR: fixed rate of 655.957 FCFA). Final fees and timings will be announced at launch.",
     scenarios: [
@@ -94,6 +102,7 @@ export const en: Dictionary = {
           },
           { title: "On site", detail: "Card payments, no fees" },
         ],
+        imageAlt: "Smiling traveler on the phone in an airport waiting area",
         receipt: {
           status: "Delivered",
           amount: "3,000.00 CNY",
@@ -107,51 +116,53 @@ export const en: Dictionary = {
       },
       {
         label: "A student child",
-        title: "Pay tuition fees without the stress",
-        persona: "Marcel · parent, Porto-Novo → Lyon, France",
+        title: "Pay tuition in Lyon, from Ouagadougou",
+        persona: "Moussa · parent of a student, Ouagadougou → Lyon, France",
         description:
-          "Marcel converts his CFA francs into euros at the fixed rate and pays his daughter’s tuition directly into the university’s account. Every month, he sends her allowance to her euro account.",
+          "Moussa converts his CFA francs into euros at the fixed rate and pays his daughter’s tuition fees by bank transfer, directly to the school, with the enrollment invoice attached. Every month, he also sends her enough to cover her rent and groceries.",
         steps: [
-          { title: "Deposit", detail: "330,000 FCFA from his bank account, instant" },
-          { title: "Conversion", detail: "XOF → EUR at the fixed rate, 655.957 FCFA for €1" },
+          { title: "Deposit", detail: "655,957 FCFA from his bank account" },
+          { title: "Conversion", detail: "XOF → EUR, fixed rate: 655.957 FCFA for €1" },
           {
             title: "Transfer to the school",
-            detail: "To the university’s bank details, fee notice attached",
+            detail: "Tuition fees, enrollment invoice attached",
           },
-          { title: "Monthly allowance", detail: "Sent to his daughter’s euro account" },
+          { title: "Every month", detail: "A transfer to his daughter’s bank account" },
         ],
+        imageAlt: "Smiling student on her campus, phone in hand",
         receipt: {
           status: "Delivered",
-          amount: "500.00 EUR",
-          debited: "≈ 327,979 FCFA debited",
+          amount: "1,000.00 EUR",
+          debited: "= 655,957 FCFA converted · fixed rate",
           rows: [
-            { label: "Beneficiary", value: "Université de Lyon" },
-            { label: "Supporting document", value: "Tuition fee notice" },
+            { label: "Beneficiary", value: "Institut Horizon, Lyon" },
+            { label: "Supporting document", value: "Enrollment invoice" },
             { label: "Timing", value: "Depends on the bank, up to 24 h" },
           ],
         },
       },
       {
         label: "The Emirates",
-        title: "Order from Dubai, pay from Cotonou",
-        persona: "Fatou · reseller, Cotonou → Dubai, United Arab Emirates",
+        title: "Pay a supplier in Dubai, without leaving Abidjan",
+        persona: "Koffi · importer, Abidjan → Dubai, United Arab Emirates",
         description:
-          "Fatou converts her CFA francs into dirhams and pays her Dubai supplier by bank transfer, backed by an invoice. When she travels, she pays for her hotel and purchases with her card, with no fees.",
+          "Koffi imports phones and accessories. He converts his CFA francs into dirhams and pays his Dubai supplier by bank transfer, with the order invoice attached. When he travels there, he pays his expenses with his card, with no fees.",
         steps: [
-          { title: "Deposit", detail: "330,000 FCFA from her MTN MoMo, instant" },
+          { title: "Deposit", detail: "1,500,000 FCFA from his Wave account, instant" },
           { title: "Conversion", detail: "XOF → AED, instant" },
           {
             title: "Transfer to the supplier",
-            detail: "From Benin, with the order invoice attached",
+            detail: "To his bank in Dubai, with the order invoice attached",
           },
           { title: "On site", detail: "Card payments, no fees" },
         ],
+        imageAlt: "Smiling merchant in a goods warehouse, phone in hand",
         receipt: {
           status: "Delivered",
-          amount: "2,000.00 AED",
-          debited: "≈ 326,000 FCFA debited",
+          amount: "9,000.00 AED",
+          debited: "≈ 1,368,000 FCFA debited",
           rows: [
-            { label: "Beneficiary", value: "Al Noor Trading LLC" },
+            { label: "Beneficiary", value: "Al Noor General Trading" },
             { label: "Supporting document", value: "Order invoice" },
             { label: "Timing", value: "Depends on the bank, up to 24 h" },
           ],
@@ -159,27 +170,28 @@ export const en: Dictionary = {
       },
       {
         label: "The United States",
-        title: "Pay for subscriptions and purchases in dollars",
-        persona: "Koffi · developer, Cotonou → United States",
+        title: "Dollars to work with the United States",
+        persona: "Fatou · freelance developer, Dakar → clients in the United States",
         description:
-          "Koffi converts his CFA francs into dollars and tops up his USD virtual card for his online tools and purchases. He also receives payments from his American clients directly into his USD wallet.",
+          "Fatou’s American clients pay her by transfer to her USD account, credited to her dollar wallet. She pays for her subscriptions and online purchases with her USD virtual card, with no fees, topped up from her XOF balance when needed.",
         steps: [
-          { title: "Deposit", detail: "480,000 FCFA from his MTN MoMo, instant" },
-          { title: "Conversion", detail: "XOF → USD, instant" },
+          { title: "Receiving", detail: "Transfer from an American client to her USD account" },
+          { title: "USD wallet", detail: "Amount credited to her dollar wallet" },
           {
             title: "USD virtual card",
-            detail: "Topped up automatically from his XOF balance",
+            detail: "Subscriptions and online purchases, no fees",
           },
-          { title: "Receiving", detail: "Transfers from the US credited to his wallet" },
+          { title: "Auto top-up", detail: "If needed, the card tops up from her XOF balance" },
         ],
+        imageAlt: "Young woman working on her laptop, phone beside her",
         receipt: {
-          status: "Credited",
-          amount: "800.00 USD",
-          debited: "≈ 480,000 FCFA debited",
+          status: "Received",
+          amount: "1,200.00 USD",
+          debited: "Credited to the USD wallet",
           rows: [
-            { label: "Destination", value: "USD virtual card" },
-            { label: "Top-up", value: "Automatic from the XOF balance" },
-            { label: "Timing", value: "Instant" },
+            { label: "Sender", value: "Northfield Studio LLC" },
+            { label: "Account", value: "USD account in her name" },
+            { label: "Timing", value: "Depends on the sender’s bank" },
           ],
         },
       },
@@ -263,7 +275,7 @@ export const en: Dictionary = {
         title: "XOF account",
         description:
           "Deposit and withdraw from your Mobile Money and bank accounts in your name. Add as many as you like.",
-        note: "MTN MoMo · Moov · Orange · Wave · [BANKS]",
+        note: "MTN MoMo · Moov · Orange · Wave · banks soon",
       },
       {
         title: "Instant conversion",
@@ -328,6 +340,42 @@ export const en: Dictionary = {
     description:
       "Everyone starts on Standard. Traders and entrepreneurs can ask for a higher limit by documenting the source of their funds and their activity.",
     upTo: "UP TO",
+    feesTitle: "Fees and timings",
+    feesIntro: "Fee amounts will be announced before we open.",
+    feesHeaders: { operation: "OPERATION", fee: "FEES", delay: "TIMING" },
+    feesRows: [
+      { operation: "Mobile Money deposit", fee: "[FEES]", free: false, delay: "Instant" },
+      {
+        operation: "Bank deposit",
+        fee: "[FEES]",
+        free: false,
+        delay: "Depends on the bank, up to 24 h",
+      },
+      {
+        operation: "Conversion XOF → EUR / USD / CNY / AED",
+        fee: "[FEES]",
+        free: false,
+        delay: "Instant",
+      },
+      {
+        operation: "Transfer to a beneficiary via bank account",
+        fee: "[FEES]",
+        free: false,
+        delay: "Depends on the bank, up to 24 h",
+      },
+      {
+        operation: "Card payment (online or on site)",
+        fee: "No fees",
+        free: true,
+        delay: "Immediate",
+      },
+      {
+        operation: "Withdrawal to Mobile Money or bank",
+        fee: "[FEES]",
+        free: false,
+        delay: "Mobile Money: instant · bank: up to 24 h",
+      },
+    ],
     tiers: [
       {
         name: "Standard",
@@ -371,6 +419,31 @@ export const en: Dictionary = {
     ],
   },
 
+  trust: {
+    eyebrow: "Trust",
+    title: "Before you trust us with your money.",
+    cards: [
+      {
+        label: "Regulatory status",
+        title: "A KryptaPay service",
+        text: "Our regulatory status and licenses will be published here before we open.",
+        action: "Soon",
+      },
+      {
+        label: "Licensed partners",
+        title: "Licensed partners",
+        text: "The partner banks and payment institutions will be presented here before we open.",
+        action: "Soon",
+      },
+      {
+        label: "Testimonials",
+        title: "Their words, soon here",
+        text: "The first user feedback will be published after we open, with their consent.",
+        action: "Join a waitlist",
+      },
+    ],
+  },
+
   faq: {
     eyebrow: "Security and questions",
     title: "Your money, under control.",
@@ -400,7 +473,14 @@ export const en: Dictionary = {
       "How long does a transfer take?",
       "What happens after I sign up?",
     ],
-    answerSoon: "Answer coming soon.",
+    answers: [
+      "At launch: Benin, Burkina Faso, Côte d’Ivoire, Mali, Senegal and Togo. Opening dates are announced first in the waiting WhatsApp group.",
+      "From your CFA franc (XOF) balance, you convert into euros, US dollars, yuan and dirhams. Each currency has its own wallet.",
+      "An ID document and a selfie, for every customer. For a Pro or Business limit, you are asked for documents showing the source of your funds and your activity.",
+      "Both. From home, you pay your suppliers by bank transfer, with the order invoice attached. On site, you pay with your virtual card, with no fees.",
+      "Depending on the beneficiary’s bank, up to 24 h. You track every transfer in the app, from sending to delivery.",
+      "You join the waiting WhatsApp group for your list. There you get the news and the opening date in your country before everyone else.",
+    ],
   },
 
   signup: {
@@ -456,6 +536,8 @@ export const en: Dictionary = {
         ],
       },
     ],
+    legal:
+      "Kossiarou is a KryptaPay service. Regulatory status and licensed partners will be published before we open. © 2026 KryptaPay.",
     photoCredit:
       "Photos: Ali Mkumbwa, Gylain Omer, Yingchou Han, Joyce Busola, David Rotimi and Sandisk, on Unsplash (Unsplash license).",
   },
