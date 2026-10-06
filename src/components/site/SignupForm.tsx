@@ -68,6 +68,7 @@ export function SignupForm({ dict }: { dict: Dictionary["signup"] }) {
           <div className="grid grid-cols-1 gap-1 rounded-xl bg-ink p-1 min-[360px]:grid-cols-2">
             <button
               type="button"
+              aria-pressed={list === "user"}
               className={segmentClass(list === "user")}
               onClick={() => setList("user")}
             >
@@ -75,6 +76,7 @@ export function SignupForm({ dict }: { dict: Dictionary["signup"] }) {
             </button>
             <button
               type="button"
+              aria-pressed={list === "amb"}
               className={segmentClass(list === "amb")}
               onClick={() => setList("amb")}
             >
@@ -87,14 +89,20 @@ export function SignupForm({ dict }: { dict: Dictionary["signup"] }) {
               {dict.firstName}
               <input
                 required
+                name="firstName"
+                autoComplete="given-name"
                 placeholder={dict.firstNamePlaceholder}
-                className="h-[46px] rounded-[10px] border border-dark-border bg-ink px-3 text-[15px] text-cream outline-none focus:border-gold"
+                className="h-[46px] rounded-[10px] border border-field-border bg-ink px-3 text-[15px] text-cream focus:border-gold"
               />
             </label>
             <label className="flex flex-col gap-1.5 text-[13px] font-bold">
               {dict.whatsapp}
-              <div className="flex h-[46px] overflow-hidden rounded-[10px] border border-dark-border bg-ink">
-                <select className="border-r border-dark-border bg-transparent px-2 font-mono text-sm text-cream outline-none">
+              <div className="flex h-[46px] overflow-hidden rounded-[10px] border border-field-border bg-ink focus-within:border-gold focus-within:outline-3 focus-within:outline-offset-2 focus-within:outline-gold">
+                <select
+                  name="country"
+                  aria-label={dict.countryCode}
+                  className="border-r border-field-border bg-transparent px-2 font-mono text-sm text-cream outline-none"
+                >
                   {COUNTRY_CODES.map((c) => (
                     <option key={c.code}>
                       {c.code} {c.dial}
@@ -103,6 +111,11 @@ export function SignupForm({ dict }: { dict: Dictionary["signup"] }) {
                 </select>
                 <input
                   required
+                  type="tel"
+                  inputMode="tel"
+                  name="whatsapp"
+                  autoComplete="tel-national"
+                  aria-label={dict.whatsapp}
                   placeholder={dict.whatsappPlaceholder}
                   className="min-w-0 flex-1 bg-transparent px-2.5 font-mono text-sm text-cream outline-none"
                 />
@@ -113,7 +126,10 @@ export function SignupForm({ dict }: { dict: Dictionary["signup"] }) {
           {list === "user" && (
             <label className="flex flex-col gap-1.5 text-[13px] font-bold">
               {dict.intentLabel}
-              <select className="h-[46px] rounded-[10px] border border-dark-border bg-ink px-3 text-[15px] text-cream outline-none">
+              <select
+                name="intent"
+                className="h-[46px] rounded-[10px] border border-field-border bg-ink px-3 text-[15px] text-cream focus:border-gold"
+              >
                 {dict.intents.map((intent) => (
                   <option key={intent}>{intent}</option>
                 ))}
@@ -129,6 +145,10 @@ export function SignupForm({ dict }: { dict: Dictionary["signup"] }) {
               ? dict.thanks
               : `${dict.submit}${list === "amb" ? dict.submitAmbassadorSuffix : ""}`}
           </button>
+          {/* Announces the confirmation to screen readers (the button label also changes). */}
+          <span role="status" className="sr-only">
+            {submitted ? dict.thanks : ""}
+          </span>
           <span className="text-xs text-dark-text-soft">{dict.referral}</span>
         </form>
       </div>

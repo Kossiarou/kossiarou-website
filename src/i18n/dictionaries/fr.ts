@@ -21,6 +21,8 @@ export const fr = {
     signup: "S’inscrire",
     languageLabel: "Langue",
     menu: "Menu",
+    navLabel: "Navigation principale",
+    skip: "Aller au contenu principal",
   },
 
   hero: {
@@ -495,6 +497,7 @@ export const fr = {
     firstNamePlaceholder: "Ex. Aïcha",
     whatsapp: "Numéro WhatsApp",
     whatsappPlaceholder: "01 97 00 00 00",
+    countryCode: "Indicatif du pays",
     intentLabel: "Vous voulez surtout",
     intents: [
       "Payer des fournisseurs en Chine",

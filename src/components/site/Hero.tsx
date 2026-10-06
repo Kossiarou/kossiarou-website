@@ -66,7 +66,7 @@ export function Hero({ dict }: { dict: Dictionary["hero"] }) {
               <span className="font-mono text-[17px]">{dict.conversionValue}</span>
             </div>
             <div className="absolute bottom-12 left-0 flex flex-col gap-[5px] rounded-2xl bg-cream-soft p-3.5 shadow-[0_12px_30px_rgba(30,34,51,0.16)]">
-              <span className="flex items-center gap-1.5 text-[13px] font-bold text-success">
+              <span className="flex items-center gap-1.5 text-[13px] font-bold text-success-text">
                 <span className="h-2 w-2 rounded-full bg-success" />
                 {dict.paymentDelivered}
               </span>

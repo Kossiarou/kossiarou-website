@@ -21,17 +21,26 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
 
   return (
     <div className="min-h-screen bg-cream">
+      {/* First stop for keyboard users: jumps over the navigation to the content. */}
+      <a
+        href="#contenu"
+        className="sr-only rounded-xl bg-ink px-4 py-3 text-base font-bold text-cream focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50"
+      >
+        {dict.header.skip}
+      </a>
       <Header lang={lang} dict={dict.header} />
-      <Hero dict={dict.hero} />
-      <WaitlistCards dict={dict.waitlist} />
-      <StorySection dict={dict.story} />
-      <AppShowcase dict={dict.app} />
-      <Features dict={dict.features} />
-      <OpenAccountSteps dict={dict.steps} />
-      <Pricing dict={dict.pricing} />
-      <Trust dict={dict.trust} />
-      <Faq dict={dict.faq} />
-      <SignupForm dict={dict.signup} />
+      <main id="contenu" tabIndex={-1} className="outline-none">
+        <Hero dict={dict.hero} />
+        <WaitlistCards dict={dict.waitlist} />
+        <StorySection dict={dict.story} />
+        <AppShowcase dict={dict.app} />
+        <Features dict={dict.features} />
+        <OpenAccountSteps dict={dict.steps} />
+        <Pricing dict={dict.pricing} />
+        <Trust dict={dict.trust} />
+        <Faq dict={dict.faq} />
+        <SignupForm dict={dict.signup} />
+      </main>
       <Footer dict={dict.footer} />
     </div>
   );

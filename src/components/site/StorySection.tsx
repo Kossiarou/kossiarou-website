@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type KeyboardEvent } from "react";
 import Image from "next/image";
 import type { Dictionary } from "@/i18n/dictionaries";
 
@@ -19,6 +19,20 @@ export function StorySection({ dict }: { dict: Dictionary["story"] }) {
   const scenario = dict.scenarios[activeIndex];
   const meta = SCENARIO_META[activeIndex];
 
+  // Keyboard model of ARIA tabs: arrows move (and wrap), Home/End jump to the ends.
+  function handleTabKeys(e: KeyboardEvent<HTMLDivElement>) {
+    const last = dict.scenarios.length - 1;
+    let next: number | null = null;
+    if (e.key === "ArrowRight") next = activeIndex === last ? 0 : activeIndex + 1;
+    else if (e.key === "ArrowLeft") next = activeIndex === 0 ? last : activeIndex - 1;
+    else if (e.key === "Home") next = 0;
+    else if (e.key === "End") next = last;
+    if (next === null) return;
+    e.preventDefault();
+    setActiveIndex(next);
+    document.getElementById(`story-tab-${SCENARIO_META[next].code}`)?.focus();
+  }
+
   return (
     <section id="histoires" className="bg-ink text-cream">
       <div className="mx-auto flex max-w-[1200px] flex-col gap-[18px] px-10 py-24">
@@ -31,7 +45,12 @@ export function StorySection({ dict }: { dict: Dictionary["story"] }) {
         <p className="max-w-[660px] text-[19px] leading-[1.5] text-dark-text-body">
           {dict.description}
         </p>
-        <div role="tablist" aria-label={dict.tabsLabel} className="mt-[18px] flex flex-wrap gap-2">
+        <div
+          role="tablist"
+          aria-label={dict.tabsLabel}
+          onKeyDown={handleTabKeys}
+          className="mt-[18px] flex flex-wrap gap-2"
+        >
           {dict.scenarios.map((d, i) => {
             const active = i === activeIndex;
             const code = SCENARIO_META[i].code;
@@ -43,6 +62,7 @@ export function StorySection({ dict }: { dict: Dictionary["story"] }) {
                 id={`story-tab-${code}`}
                 aria-selected={active}
                 aria-controls="story-panel"
+                tabIndex={active ? 0 : -1}
                 onClick={() => setActiveIndex(i)}
                 className={`flex cursor-pointer items-center gap-2.5 rounded-full py-1.5 pr-4 pl-1.5 text-[15px] font-bold transition-colors ${
                   active
@@ -66,6 +86,7 @@ export function StorySection({ dict }: { dict: Dictionary["story"] }) {
         <div
           id="story-panel"
           role="tabpanel"
+          tabIndex={0}
           aria-labelledby={`story-tab-${meta.code}`}
           className="mt-2.5 grid grid-cols-[repeat(auto-fit,minmax(min(100%,460px),1fr))] gap-12"
         >
@@ -110,7 +131,7 @@ export function StorySection({ dict }: { dict: Dictionary["story"] }) {
                 <span className="flex items-center gap-2 text-[15px] font-bold">kossiarou</span>
                 <span className="font-mono text-xs text-[#555a69]">{meta.ref}</span>
               </div>
-              <span className="flex w-fit items-center gap-1.5 rounded-full bg-success-soft px-2.5 py-[3px] text-[13px] font-bold text-success">
+              <span className="flex w-fit items-center gap-1.5 rounded-full bg-success-soft px-2.5 py-[3px] text-[13px] font-bold text-success-text">
                 <span className="h-[7px] w-[7px] rounded-full bg-success" />
                 {scenario.receipt.status}
               </span>

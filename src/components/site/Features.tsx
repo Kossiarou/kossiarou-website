@@ -26,7 +26,7 @@ export function Features({ dict }: { dict: Dictionary["features"] }) {
         <div className="mt-[26px] grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-px overflow-hidden rounded-2xl border border-border bg-border">
           {dict.items.map((feature, i) => (
             <div key={feature.title} className="flex flex-col gap-2.5 bg-white p-[26px]">
-              <span className="flex h-[42px] w-[42px] items-center justify-center rounded-[10px] bg-chip-2 text-lg">
+              <span className="flex h-[42px] w-[42px] items-center justify-center rounded-[10px] bg-chip-2 text-lg" aria-hidden="true">
                 {ICONS[i]}
               </span>
               <h3 className="mt-1.5 text-[19px] tracking-[-0.01em]">{feature.title}</h3>

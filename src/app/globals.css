@@ -13,7 +13,13 @@
   --color-chip-2: #f1ece2;
   --color-success: #2f9e5e;
   --color-success-soft: #e3f3e8;
-  --color-warning: #9a5f0e;
+  /* Darker green for text: 4.6:1 or more on every background it is used on. */
+  --color-success-text: #217a47;
+  /* Darker gold for text links on hover (the bright gold is only 2.3:1 on cream). */
+  --color-gold-text: #8a5909;
+  /* Border of form fields on dark backgrounds (3:1 minimum for UI components). */
+  --color-field-border: #7a8197;
+  --color-warning: #8f5809;
   --color-warning-soft: #f8e7c9;
   --color-dark-surface: #262b3d;
   --color-dark-surface-2: #2c3144;
@@ -37,6 +43,9 @@
   --color-chip-2: var(--color-chip-2);
   --color-success: var(--color-success);
   --color-success-soft: var(--color-success-soft);
+  --color-success-text: var(--color-success-text);
+  --color-gold-text: var(--color-gold-text);
+  --color-field-border: var(--color-field-border);
   --color-warning: var(--color-warning);
   --color-warning-soft: var(--color-warning-soft);
   --color-dark-surface: var(--color-dark-surface);
@@ -55,4 +64,31 @@ body {
   color: var(--color-ink);
   font-family: var(--font-sora), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+@layer base {
+  /* Visible keyboard focus: ink ring on light backgrounds, gold ring on dark ones. */
+  :focus-visible {
+    outline: 3px solid var(--color-ink);
+    outline-offset: 2px;
+  }
+  .bg-ink :focus-visible,
+  .bg-ink:focus-visible {
+    outline-color: var(--color-gold);
+  }
+
+  /* The sticky header must not hide the top of a section reached through an anchor link. */
+  section[id] {
+    scroll-margin-top: 5.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

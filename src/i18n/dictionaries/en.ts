@@ -24,6 +24,8 @@ export const en: Dictionary = {
     signup: "Sign up",
     languageLabel: "Language",
     menu: "Menu",
+    navLabel: "Main navigation",
+    skip: "Skip to main content",
   },
 
   hero: {
@@ -498,6 +500,7 @@ export const en: Dictionary = {
     firstNamePlaceholder: "e.g. Aïcha",
     whatsapp: "WhatsApp number",
     whatsappPlaceholder: "01 97 00 00 00",
+    countryCode: "Country code",
     intentLabel: "What you mostly want to do",
     intents: [
       "Pay suppliers in China",
