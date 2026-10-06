@@ -31,6 +31,7 @@ Open [http://localhost:3000](http://localhost:3000): it redirects to `/fr` or `/
 | `npm run start` | Serves the production build |
 | `npm run lint` | ESLint (also rejects text written directly in components, see below) |
 | `npx tsc --noEmit` | Type check (also fails when an English text is missing) |
+| `npm run test:e2e` | End-to-end tests in Chrome (see [Tests](#tests)) |
 
 Optional environment variable:
 
@@ -68,6 +69,8 @@ src/
   i18n/                 languages, dictionary loader, fr.ts and en.ts
   proxy.ts              language redirect
 public/assets/          photos and share image
+e2e/                    Playwright end-to-end tests
+playwright.config.ts    test configuration (port 3100)
 ```
 
 Sections keep the ids of the design (`#top`, `#listes`, `#histoires`, `#app`, `#fonctionnalites`,
@@ -105,11 +108,38 @@ thank-you message, but **nothing is stored**: there is no back-end for the first
 goal. See the `TODO` in that file. Where the signups should go is still to be decided; the form
 will need field checks, error messages and spam protection once it is connected.
 
+## Tests
+
+End-to-end tests with [Playwright](https://playwright.dev), in `e2e/`. They build the site and serve it
+on port 3100, so they never interfere with `npm run dev`.
+
+```bash
+npx playwright install chromium   # once: downloads the browser used by the tests
+npm run test:e2e                  # runs everything (about 2 minutes)
+npm run test:e2e -- navigation    # only the files whose name contains "navigation"
+npm run test:e2e:report           # opens the HTML report of the last run
+```
+
+On a machine that already has Chrome, `PW_CHANNEL=chrome npm run test:e2e` uses it instead of downloading
+Chromium (on Windows PowerShell: `$env:PW_CHANNEL="chrome"; npm run test:e2e`).
+
+| File | What it protects |
+|---|---|
+| `i18n.spec.ts` | language redirect (browser language, saved choice, files left alone), FR/EN toggle, `lang`, titles, share tags, no French on `/en` and no English on `/fr` |
+| `navigation.spec.ts` | burger menu (opening, closing, `aria-expanded`), header on one line at every width, "S'inscrire" moving into the menu under 360 px |
+| `story-tabs.spec.ts` | the four story tabs, ARIA tab keyboard model, photos are real photos |
+| `responsive.spec.ts` | no horizontal scroll from 280 to 2560 px (FR and EN, every story tab, FAQ open), fee table layout, resized images |
+| `not-found.spec.ts` | localized 404 with HTTP 404 and `noindex`, redirect of addresses without a language |
+| `accessibility.spec.ts` | axe-core (WCAG 2.2 AA) on every page state, skip link, focus ring on every Tab stop, headings, landmarks, reduced motion |
+| `faq-signup.spec.ts` | FAQ accordion, sign-up form fields and the WhatsApp redirect (no window is really opened) |
+
+Expected texts are read from the dictionaries (`src/i18n/dictionaries`), so changing the copy does not
+break the tests. When you add a section or a text, add the check to the matching file.
+
 ## Working on this repository
 
 - Never push to `main`: create a branch and open a pull request.
-- Before opening one, run `npm run lint`, `npx tsc --noEmit` and `npm run build`.
-- There are no automated tests yet.
+- Before opening one, run `npm run lint`, `npx tsc --noEmit`, `npm run build` and `npm run test:e2e`.
 - Run the development server in your own terminal. Starting it from a tool that later closes its
   output pipe makes the Next.js workers crash with "Jest worker encountered 2 child process
   exceptions" (`write EPIPE`).

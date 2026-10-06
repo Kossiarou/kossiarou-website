@@ -90,7 +90,9 @@ export function StorySection({ dict }: { dict: Dictionary["story"] }) {
           className="mt-2.5 grid grid-cols-[repeat(auto-fit,minmax(min(100%,460px),1fr))] gap-12"
         >
           <div className="flex flex-col gap-4 pt-1.5">
-            <h3 className="text-4xl leading-[1.05] tracking-[-0.025em]">{scenario.title}</h3>
+            <h3 className="text-[clamp(26px,9vw,36px)] leading-[1.05] tracking-[-0.025em] [overflow-wrap:anywhere]">
+              {scenario.title}
+            </h3>
             <span className="font-mono text-[13px] text-dark-text-soft">{scenario.persona}</span>
             <p className="text-lg leading-[1.55] text-dark-text">{scenario.description}</p>
             <div className="mt-2.5 flex flex-col">
