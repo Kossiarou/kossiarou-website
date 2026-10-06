@@ -78,8 +78,9 @@ Sections keep the ids of the design (`#top`, `#listes`, `#histoires`, `#app`, `#
 - Source of truth: the Claude Design project (`Kossiarou Site.dc.html`). Colors, fonts and spacing
   follow it; keep the palette, fonts, section ids and file names in `public/assets/`.
 - Photos come from Unsplash (credits are in the footer). `og-image.png` is the share image.
-- **`story-eur.png`, `story-aed.png` and `story-usd.png` are temporary placeholders** ("PHOTO À
-  FOURNIR"). Replace the files with real photos, same names, 800 × 600 or larger, warm color grading.
+- The four story photos (`story-cny.png`, `story-eur.png`, `story-aed.png`, `story-usd.png`) are
+  real photos. To change one, keep the file name. Check that the authors of the EUR, AED and USD
+  photos are credited in the footer (`footer.photoCredit` in both dictionaries).
 - Layout was checked from 280 px to 3440 px wide. The navigation becomes a burger menu under 800 px,
   and "S'inscrire" moves into that menu under 360 px.
 
@@ -88,7 +89,6 @@ Sections keep the ids of the design (`#top`, `#listes`, `#histoires`, `#app`, `#
 | Item | Where to change it |
 |---|---|
 | Real fees (the table shows `[FRAIS]` / `[FEES]`) | `pricing.feesRows` in both dictionaries |
-| Photos for the EUR, AED and USD stories | `public/assets/story-*.png` |
 | Commission amount, first-user perk, partner banks (currently "announced before we open" / "banks soon") | `waitlist.cards`, `features.items` |
 | Regulatory status, approved partners, testimonials ("Soon") | `trust.cards`, `footer.legal` |
 | Legal pages (Mentions légales, Confidentialité, Conditions d'utilisation): the footer links point to `#` | `footer.columns` and new pages |

@@ -131,7 +131,7 @@ export const en: Dictionary = {
           },
           { title: "Every month", detail: "A transfer to his daughter’s bank account" },
         ],
-        imageAlt: "Smiling student on her campus, phone in hand",
+        imageAlt: "Smiling student sitting on a bench with her laptop on her knees",
         receipt: {
           status: "Delivered",
           amount: "1,000.00 EUR",
@@ -158,7 +158,7 @@ export const en: Dictionary = {
           },
           { title: "On site", detail: "Card payments, no fees" },
         ],
-        imageAlt: "Smiling merchant in a goods warehouse, phone in hand",
+        imageAlt: "Smiling man in a shirt sitting on a low wall, jacket in hand",
         receipt: {
           status: "Delivered",
           amount: "9,000.00 AED",
@@ -185,7 +185,7 @@ export const en: Dictionary = {
           },
           { title: "Auto top-up", detail: "If needed, the card tops up from her XOF balance" },
         ],
-        imageAlt: "Young woman working on her laptop, phone beside her",
+        imageAlt: "Young woman focused on her laptop, next to a window",
         receipt: {
           status: "Received",
           amount: "1,200.00 USD",
