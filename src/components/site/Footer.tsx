@@ -10,7 +10,7 @@ export function Footer({ dict }: { dict: Dictionary["footer"] }) {
   return (
     <footer>
       <div className="mx-auto flex max-w-[1200px] flex-col gap-7 px-10 pt-[52px] pb-11">
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-7">
+        <div className="grid grid-cols-2 gap-7 md:grid-cols-[repeat(auto-fit,minmax(180px,1fr))]">
           <div className="col-span-2 flex min-w-0 flex-col gap-3">
             <Logo size="lg" />
             <p className="text-sm leading-[1.55] text-ink-soft">
@@ -31,7 +31,7 @@ export function Footer({ dict }: { dict: Dictionary["footer"] }) {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="font-mono text-[13px] text-ink-soft underline"
+                  className="font-mono text-[13px] text-ink-soft underline break-all"
                 >
                   {item.label}
                 </a>

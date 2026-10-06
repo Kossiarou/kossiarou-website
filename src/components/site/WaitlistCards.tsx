@@ -46,7 +46,7 @@ export function WaitlistCards({ dict }: { dict: Dictionary["waitlist"] }) {
                 </div>
                 <a
                   href="#inscription"
-                  className={`mt-auto w-fit rounded-xl px-5 py-3 text-[15px] font-bold whitespace-nowrap ${CARD_STYLES[i].ctaStyle}`}
+                  className={`mt-auto w-fit rounded-xl px-5 py-3 text-[15px] font-bold sm:whitespace-nowrap ${CARD_STYLES[i].ctaStyle}`}
                 >
                   {card.cta}
                 </a>
