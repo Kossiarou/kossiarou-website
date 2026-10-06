@@ -4,7 +4,7 @@ type Pricing = Dictionary["pricing"];
 
 function FeeValue({ row }: { row: Pricing["feesRows"][number] }) {
   return row.free ? (
-    <span className="font-bold text-success">{row.fee}</span>
+    <span className="font-bold text-success-text">{row.fee}</span>
   ) : (
     <span className="font-mono text-ink-soft">{row.fee}</span>
   );

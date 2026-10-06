@@ -22,7 +22,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: Dictionary["header"
     return () => query.removeEventListener("change", onChange);
   }, []);
 
-  const bar = "block h-0.5 w-[18px] rounded-sm bg-ink transition-[transform,opacity] duration-200";
+  const bar = "block h-0.5 w-[18px] rounded-sm bg-ink transition-[transform,opacity] duration-200 motion-reduce:transition-none";
 
   return (
     <header className="sticky top-0 z-20 border-b border-border bg-cream/95 backdrop-blur-sm">
@@ -31,12 +31,12 @@ export function Header({ lang, dict }: { lang: Locale; dict: Dictionary["header"
           <Logo size="header" />
         </Link>
         <div className="flex items-center gap-[clamp(6px,1.6vw,22px)]">
-          <nav className="hidden flex-wrap gap-[clamp(12px,1.8vw,22px)] text-[15px] font-semibold min-[800px]:flex">
+          <nav aria-label={dict.navLabel} className="hidden flex-wrap gap-[clamp(12px,1.8vw,22px)] text-[15px] font-semibold min-[800px]:flex">
             {dict.nav.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="relative text-ink-soft before:absolute before:inset-x-0 before:-inset-y-2.5 hover:text-gold-hover"
+                className="relative text-ink-soft before:absolute before:inset-x-0 before:-inset-y-2.5 hover:text-gold-text"
               >
                 {link.label}
               </a>
@@ -66,6 +66,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: Dictionary["header"
       {menuOpen && (
         <nav
           id="mobile-menu"
+          aria-label={dict.navLabel}
           className="flex flex-col border-t border-border px-[clamp(16px,4vw,40px)] pt-1 pb-3 text-[17px] font-semibold min-[800px]:hidden"
         >
           {dict.nav.map((link) => (
@@ -73,7 +74,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: Dictionary["header"
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="border-b border-[#ebe5d9] py-3.5 hover:text-gold-hover"
+              className="border-b border-[#ebe5d9] py-3.5 hover:text-gold-text"
             >
               {link.label}
             </a>

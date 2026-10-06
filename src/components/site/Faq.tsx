@@ -38,17 +38,26 @@ export function Faq({ dict }: { dict: Dictionary["faq"] }) {
               <div key={question} className="border-b border-border-soft">
                 <button
                   type="button"
+                  id={`faq-q-${i}`}
+                  aria-expanded={open}
+                  aria-controls={`faq-a-${i}`}
                   onClick={() => setOpenIndex(open ? null : i)}
                   className="flex w-full items-center justify-between gap-4 py-[22px] text-left text-[17px] font-bold"
                 >
                   <span>{question}</span>
-                  <span className="flex-none text-lg">{open ? "−" : "+"}</span>
+                  <span aria-hidden="true" className="flex-none text-lg">
+                    {open ? "−" : "+"}
+                  </span>
                 </button>
-                {open && (
-                  <p className="pr-[30px] pb-[22px] text-[15px] leading-[1.6] text-ink-soft">
-                    {dict.answers[i]}
-                  </p>
-                )}
+                <p
+                  id={`faq-a-${i}`}
+                  role="region"
+                  aria-labelledby={`faq-q-${i}`}
+                  hidden={!open}
+                  className="pr-[30px] pb-[22px] text-[15px] leading-[1.6] text-ink-soft"
+                >
+                  {dict.answers[i]}
+                </p>
               </div>
             );
           })}
