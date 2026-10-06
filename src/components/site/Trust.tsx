@@ -26,7 +26,7 @@ export function Trust({ dict }: { dict: Dictionary["trust"] }) {
                 {i === dict.cards.length - 1 ? (
                   <a
                     href="#listes"
-                    className="mt-auto self-start text-[15px] font-bold underline underline-offset-[3px]"
+                    className="relative mt-auto self-start text-[15px] font-bold underline underline-offset-[3px] before:absolute before:inset-x-0 before:-inset-y-2.5"
                   >
                     {card.action}
                   </a>
