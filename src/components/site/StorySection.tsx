@@ -97,7 +97,13 @@ export function StorySection({ dict }: { dict: Dictionary["story"] }) {
 
           <div className="relative min-h-[560px] pb-[120px]">
             <div className="relative h-[430px] w-full overflow-hidden rounded-[18px]">
-              <Image src={meta.image} alt={scenario.imageAlt} fill className="object-cover" />
+              <Image
+                src={meta.image}
+                alt={scenario.imageAlt}
+                fill
+                sizes="(min-width: 1000px) 540px, 100vw"
+                className="object-cover"
+              />
             </div>
             <div className="absolute inset-x-4 bottom-0 flex flex-col gap-3 rounded-[18px] bg-cream px-5 pt-5 pb-4 text-ink shadow-[0_20px_50px_rgba(0,0,0,0.35)]">
               <div className="flex items-center justify-between">

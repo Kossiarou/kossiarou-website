@@ -28,7 +28,13 @@ export function WaitlistCards({ dict }: { dict: Dictionary["waitlist"] }) {
               className="flex flex-col overflow-hidden rounded-2xl border border-border bg-white"
             >
               <div className="relative h-[310px] w-full">
-                <Image src={CARD_STYLES[i].image} alt={card.imageAlt} fill className="object-cover" />
+                <Image
+                  src={CARD_STYLES[i].image}
+                  alt={card.imageAlt}
+                  fill
+                  sizes="(min-width: 1000px) 560px, 100vw"
+                  className="object-cover"
+                />
               </div>
               <div className="flex flex-1 flex-col gap-3 px-6 pt-6 pb-[26px]">
                 <span className="w-fit rounded-full bg-chip-2 px-2.5 py-[3px] font-mono text-[13px]">
