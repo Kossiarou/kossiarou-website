@@ -123,7 +123,7 @@ export function SignupForm({ dict }: { dict: Dictionary["signup"] }) {
 
           <button
             type="submit"
-            className="h-12 overflow-hidden rounded-xl bg-gold px-4 text-base font-bold text-ellipsis whitespace-nowrap text-ink hover:bg-gold-hover"
+            className="min-h-12 rounded-xl bg-gold px-4 py-2 text-base font-bold text-ink hover:bg-gold-hover sm:overflow-hidden sm:text-ellipsis sm:whitespace-nowrap"
           >
             {submitted
               ? dict.thanks

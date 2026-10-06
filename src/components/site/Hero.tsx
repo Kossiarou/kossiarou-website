@@ -14,7 +14,7 @@ export function Hero({ dict }: { dict: Dictionary["hero"] }) {
           </span>
           <h1 className="max-w-[560px] text-[clamp(44px,6vw,72px)] leading-[1] font-bold tracking-[-0.035em]">
             {dict.titleBefore}
-            <span className="underline decoration-[#f06aa7] decoration-[5px] underline-offset-[6px]">
+            <span className="underline decoration-[#f06aa7] decoration-[5px] underline-offset-[6px] [text-decoration-skip-ink:none]">
               {dict.titleHighlight}
             </span>
             {dict.titleAfter}
