@@ -2,12 +2,20 @@
 // donc toute clé ajoutée ici doit aussi être traduite en anglais (sinon `tsc` échoue).
 export const fr = {
   meta: {
-    title: "Kossiarou — Vos francs CFA voyagent. Vous aussi.",
+    title: "Payer à l’étranger sans blocage depuis l’Afrique | Kossiarou",
     description:
-      "Kossiarou convertit instantanément votre argent en euros, dollars, yuans ou dirhams. Payez vos fournisseurs par virement, voyagez avec votre carte, envoyez de l'argent à vos proches.",
-    ogTitle: "Kossiarou",
-    ogDescription: "Vos francs CFA voyagent. Vous aussi.",
-    ogImageAlt: "Logo Kossiarou et le message : Vos francs CFA voyagent. Vous aussi.",
+      "Payez vos fournisseurs en Chine, la scolarité en France, vos voyages à Dubaï ou aux États-Unis depuis votre téléphone. Bientôt en Afrique de l’Ouest.",
+    ogTitle: "Payez à l’étranger. Sans blocage. | Kossiarou",
+    ogDescription:
+      "Fournisseur en Chine, scolarité en France, voyage à Dubaï ou aux USA : payez depuis votre téléphone. Bientôt en Afrique de l’Ouest.",
+    ogImageAlt: "Kossiarou : Payez à l’étranger. Sans blocage.",
+    schema: {
+      slogan: "Payez à l’étranger. Sans blocage.",
+      organizationDescription:
+        "Application mobile pour payer à l’étranger (Europe, Chine, États-Unis, Dubaï) depuis l’Afrique de l’Ouest.",
+      serviceName: "Paiements à l’étranger depuis l’Afrique de l’Ouest",
+      serviceType: "Paiement international",
+    },
   },
 
   header: {
@@ -26,20 +34,92 @@ export const fr = {
   },
 
   hero: {
-    badge: "Bientôt disponible · Bénin, Burkina Faso, Côte d’Ivoire, Mali, Sénégal, Togo",
-    titleBefore: "Vos francs CFA ",
-    titleHighlight: "voyagent",
-    titleAfter: ". Vous aussi, sans liquidité.",
+    badge: "Bientôt disponible en Afrique de l’Ouest",
+    titleBefore: "Payez à l’étranger. ",
+    titleHighlight: "Sans blocage",
+    titleAfter: ".",
     description:
-      "Kossiarou convertit instantanément votre argent en euros, dollars, yuans ou dirhams. Payez vos fournisseurs par virement depuis chez vous, ou sur place avec votre carte, et envoyez de l’argent à vos enfants étudiants.",
-    primaryCta: "Devenir premier utilisateur",
-    secondaryCta: "Devenir ambassadeur",
+      "Fournisseur en Chine, scolarité en France, voyage à Dubaï ou aux États-Unis : avec Kossiarou, vous réglez tout depuis votre téléphone, sans chercher les devises et sans passer par un intermédiaire.",
+    primaryCta: "Rejoindre les premiers utilisateurs",
+    secondaryCta: "Écrire sur WhatsApp",
+    destinationsLabel: "Destinations",
+    destinations: ["Europe · EUR", "Chine · CNY", "États-Unis · USD", "Dubaï · AED"],
     conversionLabel: "Conversion instantanée",
     conversionValue: "300 000 F → 3 846 ¥",
     paymentDelivered: "Paiement livré",
     paymentAmount: "3 000,00 CNY",
     paymentBeneficiary: "Yiwu Trading Co.",
-    imageAlt: "Commerçante souriante dans sa boutique, téléphone à la main",
+    imageAlt: "Commerçante d’Afrique de l’Ouest souriante, téléphone en main, dans sa boutique",
+  },
+
+  pain: {
+    eyebrow: "Vous connaissez ça",
+    title: "Payer à l’étranger depuis l’Afrique, c’est souvent bloqué.",
+    quotes: [
+      {
+        quote: "« Ma carte ne passe pas. »",
+        detail: "Paiement refusé en ligne ou au comptoir, à Dubaï comme sur Alibaba.",
+      },
+      {
+        quote: "« Il faut chercher les euros. »",
+        detail: "Devises introuvables, changeurs informels, valise de billets.",
+      },
+      {
+        quote: "« Le fournisseur attend toujours. »",
+        detail: "Virement bloqué, justificatifs demandés, commande en retard.",
+      },
+    ],
+    answer:
+      "Avec Kossiarou, ça passe : vous payez directement, au taux affiché, depuis votre téléphone.",
+  },
+
+  destinations: {
+    eyebrow: "Quatre destinations, une seule application",
+    title: "Où voulez-vous payer ?",
+    items: [
+      {
+        code: "CHINE · CNY",
+        title: "Payer un fournisseur en Chine",
+        text: "Réglez vos commandes à Guangzhou ou Yiwu par virement, facture jointe, au taux affiché avant validation.",
+        href: "/fr/payer-fournisseur-chine",
+        cta: "Payer la Chine",
+      },
+      {
+        code: "FRANCE · EUR",
+        title: "Payer la scolarité en France",
+        text: "Frais de scolarité, logement, dépenses de votre enfant étudiant : payez directement l’école ou le bailleur.",
+        href: "/fr/payer-scolarite-france",
+        cta: "Payer les études",
+      },
+      {
+        code: "DUBAÏ · AED",
+        title: "Voyager et acheter à Dubaï",
+        text: "Hôtel, achats, fournisseurs : une carte qui passe sur place et en ligne, sans valise de billets.",
+        href: "/fr/payer-a-dubai",
+        cta: "Payer à Dubaï",
+      },
+      {
+        code: "ÉTATS-UNIS · USD",
+        title: "Payer aux États-Unis",
+        text: "Abonnements, achats en ligne, frais de dossier, voyages : payez en dollars depuis votre téléphone.",
+        href: "/fr/payer-aux-etats-unis",
+        cta: "Payer en dollars",
+      },
+    ],
+  },
+
+  countries: {
+    eyebrow: "Lancement",
+    title: "Bientôt dans six pays d’Afrique de l’Ouest.",
+    text: "Le lancement commence au Bénin, puis s’étend à la Côte d’Ivoire, au Burkina Faso, au Togo, au Mali et au Sénégal.",
+    items: [
+      { code: "BJ", name: "Bénin", href: "/fr/benin" },
+      { code: "CI", name: "Côte d’Ivoire", href: "/fr/cote-divoire" },
+      { code: "BF", name: "Burkina Faso", href: "/fr/burkina-faso" },
+      { code: "TG", name: "Togo", href: "/fr/togo" },
+      { code: "ML", name: "Mali", href: "/fr/mali" },
+      { code: "SN", name: "Sénégal", href: "/fr/senegal" },
+    ],
   },
 
   waitlist: {
@@ -343,22 +423,22 @@ export const fr = {
     feesIntro: "Montants des frais communiqués avant l’ouverture.",
     feesHeaders: { operation: "OPÉRATION", fee: "FRAIS", delay: "DÉLAI" },
     feesRows: [
-      { operation: "Dépôt Mobile Money", fee: "[FRAIS]", free: false, delay: "Instantané" },
+      { operation: "Dépôt Mobile Money", fee: "Communiqués au lancement", free: false, delay: "Instantané" },
       {
         operation: "Dépôt bancaire",
-        fee: "[FRAIS]",
+        fee: "Communiqués au lancement",
         free: false,
         delay: "Selon la banque, jusqu’à 24 h",
       },
       {
         operation: "Conversion XOF → EUR / USD / CNY / AED",
-        fee: "[FRAIS]",
+        fee: "Communiqués au lancement",
         free: false,
         delay: "Instantanée",
       },
       {
         operation: "Envoi à un bénéficiaire via compte bancaire",
-        fee: "[FRAIS]",
+        fee: "Communiqués au lancement",
         free: false,
         delay: "Selon la banque, jusqu’à 24 h",
       },
@@ -370,7 +450,7 @@ export const fr = {
       },
       {
         operation: "Retrait vers Mobile Money ou banque",
-        fee: "[FRAIS]",
+        fee: "Communiqués au lancement",
         free: false,
         delay: "Mobile Money : instantané · banque : jusqu’à 24 h",
       },
@@ -424,7 +504,7 @@ export const fr = {
     cards: [
       {
         label: "Statut réglementaire",
-        title: "Un service de KryptaPay",
+        title: "Édité par Kossiarou Technology SARL",
         text: "Notre statut réglementaire et nos agréments seront publiés ici avant l’ouverture.",
         action: "Bientôt",
       },
@@ -465,20 +545,24 @@ export const fr = {
       },
     ],
     questions: [
-      "Dans quels pays puis-je ouvrir un compte ?",
-      "Vers quelles devises puis-je convertir et payer ?",
-      "Quels documents faut-il fournir ?",
-      "Puis-je payer depuis le Bénin ou sur place ?",
-      "Combien de temps prend un virement ?",
+      "Qu’est-ce que Kossiarou ?",
+      "Comment payer un fournisseur en Chine depuis le Bénin ou la Côte d’Ivoire ?",
+      "Comment payer la scolarité de mon enfant en France ?",
+      "Dans quels pays Kossiarou sera-t-il disponible ?",
+      "Vers quelles devises puis-je payer ?",
+      "Quels documents faut-il pour ouvrir un compte ?",
+      "Combien de temps prend un paiement ?",
       "Que se passe-t-il après mon inscription ?",
     ],
     answers: [
-      "Au lancement : Bénin, Burkina Faso, Côte d’Ivoire, Mali, Sénégal et Togo. Les dates d’ouverture sont annoncées en avant-première dans le groupe WhatsApp d’attente.",
-      "Depuis votre solde en francs CFA (XOF), vous convertissez en euros, dollars américains, yuans et dirhams. Chaque devise a son propre wallet.",
-      "Une pièce d’identité et un selfie, pour chaque client. Pour un plafond Pro ou Business, des justificatifs sur l’origine de vos fonds et votre activité vous sont demandés.",
-      "Les deux. Depuis chez vous, vous payez vos fournisseurs par virement bancaire, facture de la commande jointe. Sur place, vous payez avec votre carte virtuelle, sans frais.",
-      "Selon la banque du bénéficiaire, jusqu’à 24 h. Vous suivez chaque virement dans l’app, de l’envoi à la livraison.",
-      "Vous rejoignez le groupe WhatsApp d’attente de votre liste. Vous y recevez les nouvelles et la date d’ouverture dans votre pays en avant-première.",
+      "Kossiarou est une application mobile qui permet aux particuliers et aux commerçants d’Afrique de l’Ouest de payer à l’étranger, en Europe, en Chine, aux États-Unis et à Dubaï, depuis leur téléphone, sans chercher les devises.",
+      "Vous déposez depuis votre Mobile Money ou votre banque, vous voyez le montant en yuans avant de valider, puis vous payez votre fournisseur par virement avec la facture de la commande.",
+      "Vous ajoutez l’école comme bénéficiaire une seule fois, puis vous payez les frais en euros par virement, avec le justificatif demandé. Vous suivez le paiement jusqu’à la réception.",
+      "Au Bénin d’abord, puis en Côte d’Ivoire, au Burkina Faso, au Togo, au Mali et au Sénégal.",
+      "Euro, dollar américain, yuan chinois et dirham des Émirats.",
+      "Une pièce d’identité valide et un selfie pris dans l’application. Pour les plafonds Pro et Business, des justificatifs d’activité et d’origine des fonds.",
+      "La conversion est immédiate. Un virement arrive selon la banque du bénéficiaire, en général sous 24 heures.",
+      "Vous rejoignez le groupe WhatsApp des premiers utilisateurs : vous recevez les dates d’ouverture et un accès prioritaire dès le lancement dans votre pays.",
     ],
   },
 
@@ -520,12 +604,22 @@ export const fr = {
     waitlist: "Rejoindre une liste d’attente",
   },
 
+  consent: {
+    title: "Cookies et mesure d’audience",
+    text: "Avec votre accord, nous mesurons les visites et les inscriptions pour améliorer le site et nos publicités. Refuser est aussi simple qu’accepter.",
+    accept: "Accepter",
+    refuse: "Refuser",
+    privacy: "Confidentialité",
+    privacyHref: "/fr/confidentialite",
+  },
+
   footer: {
-    tagline: "« Kossiarou » signifie « paiement » en bariba.",
-    taglineOwner: "Une application de KryptaPay.",
+    tagline: "« Kossiarou » signifie « paiement » en bariba. Payez à l’étranger, sans blocage.",
+    cookieSettings: "Gérer les cookies",
     columns: [
       {
         title: "PRODUIT",
+        showContact: false,
         links: [
           { href: "#app", label: "L’app" },
           { href: "#tarifs", label: "Tarifs" },
@@ -533,20 +627,38 @@ export const fr = {
         ],
       },
       {
+        title: "PAYER",
+        showContact: false,
+        links: [
+          { href: "/fr/payer-fournisseur-chine", label: "En Chine" },
+          { href: "/fr/payer-scolarite-france", label: "En France" },
+          { href: "/fr/payer-a-dubai", label: "À Dubaï" },
+          { href: "/fr/payer-aux-etats-unis", label: "Aux États-Unis" },
+        ],
+      },
+      {
         title: "AIDE",
-        links: [{ href: "#faq", label: "FAQ" }],
+        showContact: true,
+        links: [
+          { href: "/fr/faq", label: "FAQ" },
+          { href: "/fr/securite", label: "Sécurité" },
+          { href: "/fr/guides", label: "Guides" },
+          { href: "/fr/ambassadeurs", label: "Ambassadeurs" },
+        ],
       },
       {
         title: "LÉGAL",
+        showContact: false,
         links: [
-          { href: "#", label: "Mentions légales" },
-          { href: "#", label: "Confidentialité" },
-          { href: "#", label: "Conditions d’utilisation" },
+          { href: "/fr/mentions-legales", label: "Mentions légales" },
+          { href: "/fr/confidentialite", label: "Confidentialité" },
+          { href: "/fr/conditions", label: "Conditions d’utilisation" },
         ],
       },
     ],
     legal:
-      "Kossiarou est un service de KryptaPay. Statut réglementaire et partenaires agréés publiés avant l’ouverture. © 2026 KryptaPay.",  },
+      "© 2026 Kossiarou Technology SARL, Parakou, Bénin. Statut réglementaire et partenaires agréés publiés avant l’ouverture.",
+  },
 };
 
 export type Dictionary = typeof fr;

@@ -4,13 +4,20 @@ import type { Dictionary } from "./fr";
 // Amounts use English number formatting (3,000.00) while keeping the same values as FR.
 export const en: Dictionary = {
   meta: {
-    title: "Kossiarou — Your CFA francs travel. So can you.",
+    title: "Pay abroad from West Africa, without blocks | Kossiarou",
     description:
-      "Kossiarou instantly converts your money into euros, dollars, yuan or dirhams. Pay your suppliers by bank transfer, travel with your card, send money to your loved ones.",
-    ogTitle: "Kossiarou",
-    ogDescription: "Your CFA francs travel. So can you.",
-    ogImageAlt:
-      "Kossiarou logo and the message “Vos francs CFA voyagent. Vous aussi.” (Your CFA francs travel. So can you.)",
+      "Pay suppliers in China, school fees in France, trips to Dubai or the US from your phone. Coming soon to West Africa.",
+    ogTitle: "Pay abroad. No blocks. | Kossiarou",
+    ogDescription:
+      "Supplier in China, school fees in France, trip to Dubai or the USA: pay from your phone. Coming soon to West Africa.",
+    ogImageAlt: "Kossiarou: Pay abroad. No blocks.",
+    schema: {
+      slogan: "Pay abroad. No blocks.",
+      organizationDescription:
+        "Mobile app to pay abroad (Europe, China, United States, Dubai) from West Africa.",
+      serviceName: "Payments abroad from West Africa",
+      serviceType: "International payment",
+    },
   },
 
   header: {
@@ -29,20 +36,92 @@ export const en: Dictionary = {
   },
 
   hero: {
-    badge: "Coming soon · Benin, Burkina Faso, Côte d’Ivoire, Mali, Senegal, Togo",
-    titleBefore: "Your CFA francs ",
-    titleHighlight: "travel",
-    titleAfter: ". So can you, without carrying cash.",
+    badge: "Coming soon to West Africa",
+    titleBefore: "Pay abroad. ",
+    titleHighlight: "No blocks",
+    titleAfter: ".",
     description:
-      "Kossiarou instantly converts your money into euros, dollars, yuan or dirhams. Pay your suppliers by bank transfer from home, or on the spot with your card, and send money to your children studying abroad.",
-    primaryCta: "Become a first user",
-    secondaryCta: "Become an ambassador",
+      "Supplier in China, school fees in France, a trip to Dubai or the United States: with Kossiarou, you pay for everything from your phone, without hunting for currency and without a middleman.",
+    primaryCta: "Join the first users",
+    secondaryCta: "Write on WhatsApp",
+    destinationsLabel: "Destinations",
+    destinations: ["Europe · EUR", "China · CNY", "United States · USD", "Dubai · AED"],
     conversionLabel: "Instant conversion",
     conversionValue: "300,000 F → 3,846 ¥",
     paymentDelivered: "Payment delivered",
     paymentAmount: "3,000.00 CNY",
     paymentBeneficiary: "Yiwu Trading Co.",
-    imageAlt: "Smiling shopkeeper in her shop, phone in hand",
+    imageAlt: "Smiling West African shopkeeper in her shop, phone in hand",
+  },
+
+  pain: {
+    eyebrow: "You know the feeling",
+    title: "Paying abroad from Africa is often blocked.",
+    quotes: [
+      {
+        quote: "“My card won’t go through.”",
+        detail: "Payment refused online or at the counter, in Dubai as on Alibaba.",
+      },
+      {
+        quote: "“I have to hunt for euros.”",
+        detail: "Currency nowhere to be found, informal changers, a suitcase of cash.",
+      },
+      {
+        quote: "“The supplier is still waiting.”",
+        detail: "Transfer blocked, documents requested, order delayed.",
+      },
+    ],
+    answer:
+      "With Kossiarou, it goes through: you pay directly, at the displayed rate, from your phone.",
+  },
+
+  destinations: {
+    eyebrow: "Four destinations, one app",
+    title: "Where do you want to pay?",
+    items: [
+      {
+        code: "CHINA · CNY",
+        title: "Pay a supplier in China",
+        text: "Pay your orders in Guangzhou or Yiwu by transfer, invoice attached, at the rate shown before you confirm.",
+        href: "",
+        cta: "Pay China",
+      },
+      {
+        code: "FRANCE · EUR",
+        title: "Pay school fees in France",
+        text: "Tuition, housing, your student child’s expenses: pay the school or the landlord directly.",
+        href: "",
+        cta: "Pay for studies",
+      },
+      {
+        code: "DUBAI · AED",
+        title: "Travel and shop in Dubai",
+        text: "Hotel, purchases, suppliers: a card that works on the spot and online, no suitcase of cash.",
+        href: "",
+        cta: "Pay in Dubai",
+      },
+      {
+        code: "UNITED STATES · USD",
+        title: "Pay in the United States",
+        text: "Subscriptions, online purchases, application fees, trips: pay in dollars from your phone.",
+        href: "",
+        cta: "Pay in dollars",
+      },
+    ],
+  },
+
+  countries: {
+    eyebrow: "Launch",
+    title: "Coming soon in six West African countries.",
+    text: "The launch starts in Benin, then extends to Côte d’Ivoire, Burkina Faso, Togo, Mali and Senegal.",
+    items: [
+      { code: "BJ", name: "Benin", href: "" },
+      { code: "CI", name: "Côte d’Ivoire", href: "" },
+      { code: "BF", name: "Burkina Faso", href: "" },
+      { code: "TG", name: "Togo", href: "" },
+      { code: "ML", name: "Mali", href: "" },
+      { code: "SN", name: "Senegal", href: "" },
+    ],
   },
 
   waitlist: {
@@ -346,22 +425,22 @@ export const en: Dictionary = {
     feesIntro: "Fee amounts will be announced before we open.",
     feesHeaders: { operation: "OPERATION", fee: "FEES", delay: "TIMING" },
     feesRows: [
-      { operation: "Mobile Money deposit", fee: "[FEES]", free: false, delay: "Instant" },
+      { operation: "Mobile Money deposit", fee: "Announced at launch", free: false, delay: "Instant" },
       {
         operation: "Bank deposit",
-        fee: "[FEES]",
+        fee: "Announced at launch",
         free: false,
         delay: "Depends on the bank, up to 24 h",
       },
       {
         operation: "Conversion XOF → EUR / USD / CNY / AED",
-        fee: "[FEES]",
+        fee: "Announced at launch",
         free: false,
         delay: "Instant",
       },
       {
         operation: "Transfer to a beneficiary via bank account",
-        fee: "[FEES]",
+        fee: "Announced at launch",
         free: false,
         delay: "Depends on the bank, up to 24 h",
       },
@@ -373,7 +452,7 @@ export const en: Dictionary = {
       },
       {
         operation: "Withdrawal to Mobile Money or bank",
-        fee: "[FEES]",
+        fee: "Announced at launch",
         free: false,
         delay: "Mobile Money: instant · bank: up to 24 h",
       },
@@ -427,7 +506,7 @@ export const en: Dictionary = {
     cards: [
       {
         label: "Regulatory status",
-        title: "A KryptaPay service",
+        title: "Published by Kossiarou Technology SARL",
         text: "Our regulatory status and licenses will be published here before we open.",
         action: "Soon",
       },
@@ -468,20 +547,24 @@ export const en: Dictionary = {
       },
     ],
     questions: [
-      "In which countries can I open an account?",
-      "Which currencies can I convert to and pay in?",
-      "Which documents do I need to provide?",
-      "Can I pay from Benin or on the spot?",
-      "How long does a transfer take?",
+      "What is Kossiarou?",
+      "How do I pay a supplier in China from Benin or Côte d’Ivoire?",
+      "How do I pay my child’s school fees in France?",
+      "In which countries will Kossiarou be available?",
+      "Which currencies can I pay in?",
+      "What documents do I need to open an account?",
+      "How long does a payment take?",
       "What happens after I sign up?",
     ],
     answers: [
-      "At launch: Benin, Burkina Faso, Côte d’Ivoire, Mali, Senegal and Togo. Opening dates are announced first in the waiting WhatsApp group.",
-      "From your CFA franc (XOF) balance, you convert into euros, US dollars, yuan and dirhams. Each currency has its own wallet.",
-      "An ID document and a selfie, for every customer. For a Pro or Business limit, you are asked for documents showing the source of your funds and your activity.",
-      "Both. From home, you pay your suppliers by bank transfer, with the order invoice attached. On site, you pay with your virtual card, with no fees.",
-      "Depending on the beneficiary’s bank, up to 24 h. You track every transfer in the app, from sending to delivery.",
-      "You join the waiting WhatsApp group for your list. There you get the news and the opening date in your country before everyone else.",
+      "Kossiarou is a mobile app that lets individuals and merchants in West Africa pay abroad, in Europe, China, the United States and Dubai, from their phone, without hunting for currency.",
+      "You deposit from your Mobile Money or your bank, you see the amount in yuan before you confirm, then you pay your supplier by transfer with the order invoice.",
+      "You add the school as a beneficiary once, then you pay the fees in euros by transfer, with the document required. You follow the payment until it arrives.",
+      "Benin first, then Côte d’Ivoire, Burkina Faso, Togo, Mali and Senegal.",
+      "Euro, US dollar, Chinese yuan and UAE dirham.",
+      "A valid ID and a selfie taken in the app. For Pro and Business limits, documents showing your activity and the origin of your funds.",
+      "The conversion is immediate. A transfer arrives depending on the beneficiary’s bank, usually within 24 hours.",
+      "You join the WhatsApp group of the first users: you get the opening dates and priority access as soon as we launch in your country.",
     ],
   },
 
@@ -523,12 +606,22 @@ export const en: Dictionary = {
     waitlist: "Join a waitlist",
   },
 
+  consent: {
+    title: "Cookies and audience measurement",
+    text: "With your consent, we measure visits and sign-ups to improve the site and our ads. Refusing is as easy as accepting.",
+    accept: "Accept",
+    refuse: "Refuse",
+    privacy: "Privacy (in French)",
+    privacyHref: "/fr/confidentialite",
+  },
+
   footer: {
-    tagline: "“Kossiarou” means “payment” in Bariba.",
-    taglineOwner: "An app by KryptaPay.",
+    tagline: "“Kossiarou” means “payment” in Bariba. Pay abroad, no blocks.",
+    cookieSettings: "Cookie settings",
     columns: [
       {
         title: "PRODUCT",
+        showContact: false,
         links: [
           { href: "#app", label: "The app" },
           { href: "#tarifs", label: "Pricing" },
@@ -537,17 +630,20 @@ export const en: Dictionary = {
       },
       {
         title: "HELP",
+        showContact: true,
         links: [{ href: "#faq", label: "FAQ" }],
       },
       {
         title: "LEGAL",
+        showContact: false,
         links: [
-          { href: "#", label: "Legal notice" },
-          { href: "#", label: "Privacy" },
-          { href: "#", label: "Terms of use" },
+          { href: "/fr/mentions-legales", label: "Legal notice (in French)" },
+          { href: "/fr/confidentialite", label: "Privacy (in French)" },
+          { href: "/fr/conditions", label: "Terms of use (in French)" },
         ],
       },
     ],
     legal:
-      "Kossiarou is a KryptaPay service. Regulatory status and licensed partners will be published before we open. © 2026 KryptaPay.",  },
+      "© 2026 Kossiarou Technology SARL, Parakou, Benin. Regulatory status and licensed partners will be published before we open.",
+  },
 };

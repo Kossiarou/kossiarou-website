@@ -30,12 +30,18 @@ export function proxy(request: NextRequest) {
   );
   if (hasLocalePrefix) return;
 
+  const locale = getLocale(request);
   const url = request.nextUrl.clone();
-  url.pathname = `/${getLocale(request)}${pathname === "/" ? "" : pathname}`;
-  return NextResponse.redirect(url);
+  url.pathname = `/${locale}${pathname === "/" ? "" : pathname}`;
+  // Search engines send neither a cookie nor a language: they get a permanent redirect to the
+  // French site (one URL per page). Visitors who picked or were detected as English keep the
+  // temporary one, because that answer depends on the visitor and must not be cached.
+  const permanent = locale === defaultLocale && !request.cookies.has(LOCALE_COOKIE);
+  return NextResponse.redirect(url, permanent ? 308 : 307);
 }
 
 export const config = {
-  // Skip Next internals and any path with a file extension (images, icons, etc.). [.] is a literal dot.
-  matcher: ["/((?!_next|assets|.*[.].*).*)"],
+  // Skip Next internals, API routes and any path with a file extension (images, icons, etc.).
+  // [.] is a literal dot.
+  matcher: ["/((?!_next|api|assets|.*[.].*).*)"],
 };

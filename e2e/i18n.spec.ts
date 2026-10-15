@@ -20,7 +20,8 @@ test.describe("language redirect", () => {
       if (c.header) headers["Accept-Language"] = c.header;
       if (c.cookie) headers["Cookie"] = c.cookie;
       const res = await request.get(c.path, { headers, maxRedirects: 0 });
-      expect(res.status()).toBe(307);
+      // Permanent for the default language without a saved choice (what crawlers get), temporary otherwise.
+      expect(res.status()).toBe(c.to.startsWith("/fr") && !c.cookie ? 308 : 307);
       expect(new URL(res.headers()["location"], "http://localhost").pathname).toBe(c.to);
     });
   }
@@ -48,7 +49,7 @@ test.describe("each language", () => {
     for (const lang of LANGS) {
       await openPage(page, lang);
       const meta = (sel: string) => page.locator(sel).getAttribute("content");
-      expect(await meta('meta[property="og:image"]')).toMatch(/^https?:\/\/.+\/assets\/og-image\.png$/);
+      expect(await meta('meta[property="og:image"]')).toMatch(/^https?:\/\/.+\/og\/kossiarou-og-1200x630\.png$/);
       expect(await meta('meta[property="og:image:width"]')).toBe("1200");
       expect(await meta('meta[property="og:image:height"]')).toBe("630");
       expect(await meta('meta[property="og:image:alt"]')).toBe(DICT[lang].meta.ogImageAlt);
