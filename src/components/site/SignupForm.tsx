@@ -12,9 +12,11 @@ const COUNTRY_CODES = [
   { code: "TG", dial: "+228" },
 ];
 
+const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/LBlm1IMzuMvHcX1fQZjwfl?s=cl&p=i&ilr=4&iam=2";
+
 const WHATSAPP_GROUPS = {
-  user: "https://chat.whatsapp.com/LrMVOKBlhzQ4wUOAniwMgL?s=cl&p=i&mlu=4&ilr=4",
-  amb: "https://chat.whatsapp.com/GOMZi9L59jvAGueaQITRe8?s=cl&p=i&mlu=4&ilr=4",
+  user: WHATSAPP_GROUP_URL,
+  amb: WHATSAPP_GROUP_URL,
 };
 
 export function SignupForm({ dict }: { dict: Dictionary["signup"] }) {

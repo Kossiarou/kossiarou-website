@@ -80,10 +80,9 @@ Sections keep the ids of the design (`#top`, `#listes`, `#histoires`, `#app`, `#
 
 - Source of truth: the Claude Design project (`Kossiarou Site.dc.html`). Colors, fonts and spacing
   follow it; keep the palette, fonts, section ids and file names in `public/assets/`.
-- Photos come from Unsplash (credits are in the footer). `og-image.png` is the share image.
+- Photos come from Unsplash (no credit line is shown on the site). `og-image.png` is the share image.
 - The four story photos (`story-cny.png`, `story-eur.png`, `story-aed.png`, `story-usd.png`) are
-  real photos. To change one, keep the file name. Check that the authors of the EUR, AED and USD
-  photos are credited in the footer (`footer.photoCredit` in both dictionaries).
+  real photos. To change one, keep the file name.
 - Layout was checked from 280 px to 3440 px wide. The navigation becomes a burger menu under 800 px,
   and "S'inscrire" moves into that menu under 360 px.
 

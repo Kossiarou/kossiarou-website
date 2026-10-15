@@ -3,7 +3,10 @@ import { Logo } from "./Logo";
 
 // Language-neutral links added under a column, keyed by column position.
 const EXTRA_LINKS: Record<number, { href: string; label: string }[]> = {
-  1: [{ href: "mailto:contact@kossiarou.com", label: "contact@kossiarou.com" }],
+  1: [
+    { href: "mailto:contact@kossiarou.com", label: "contact@kossiarou.com" },
+    { href: "https://wa.me/33745543736", label: "+33 7 45 54 37 36" },
+  ],
 };
 
 export function Footer({ dict }: { dict: Dictionary["footer"] }) {
@@ -43,10 +46,7 @@ export function Footer({ dict }: { dict: Dictionary["footer"] }) {
             </div>
           ))}
         </div>
-        <div className="flex flex-col gap-2">
-          <p className="text-xs leading-[1.6] text-ink-soft">{dict.legal}</p>
-          <p className="text-xs leading-[1.6] text-ink-soft">{dict.photoCredit}</p>
-        </div>
+        <p className="text-xs leading-[1.6] text-ink-soft">{dict.legal}</p>
       </div>
     </footer>
   );

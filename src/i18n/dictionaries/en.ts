@@ -549,8 +549,5 @@ export const en: Dictionary = {
       },
     ],
     legal:
-      "Kossiarou is a KryptaPay service. Regulatory status and licensed partners will be published before we open. © 2026 KryptaPay.",
-    photoCredit:
-      "Photos: Ali Mkumbwa, Gylain Omer, Yingchou Han, Joyce Busola, David Rotimi and Sandisk, on Unsplash (Unsplash license).",
-  },
+      "Kossiarou is a KryptaPay service. Regulatory status and licensed partners will be published before we open. © 2026 KryptaPay.",  },
 };
