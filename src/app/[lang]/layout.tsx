@@ -1,8 +1,12 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { Sora, IBM_Plex_Mono } from "next/font/google";
 import { getDictionary } from "@/i18n/dictionaries";
 import { hasLocale, locales } from "@/i18n/config";
+import { IS_INDEXABLE, SITE_NAME, SITE_URL } from "@/lib/site";
+import { graph, organizationSchema } from "@/lib/schema";
+import { JsonLd } from "@/components/site/JsonLd";
+import { Analytics } from "@/components/site/Analytics";
 import "../globals.css";
 
 const sora = Sora({
@@ -21,44 +25,38 @@ export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
 }
 
-export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Promise<Metadata> {
-  const { lang } = await params;
-  if (!hasLocale(lang)) return {};
-  const dict = await getDictionary(lang);
-  const image = {
-    url: "/assets/og-image.png",
-    width: 1200,
-    height: 630,
-    alt: dict.meta.ogImageAlt,
-  };
+// Metadata shared by every page. Title, description, canonical and Open Graph are set by
+// each page (see lib/seo.ts), because a canonical set here would be inherited by all of them.
+export async function generateMetadata(): Promise<Metadata> {
   return {
-    // Absolute base so og:image becomes an absolute URL. Set NEXT_PUBLIC_SITE_URL in production.
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://kossiarou.com"),
-    title: dict.meta.title,
-    description: dict.meta.description,
-    alternates: { languages: { fr: "/fr", en: "/en" } },
-    openGraph: {
-      type: "website",
-      title: dict.meta.ogTitle,
-      description: dict.meta.ogDescription,
-      images: [image],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: dict.meta.ogTitle,
-      description: dict.meta.ogDescription,
-      images: [image],
+    metadataBase: new URL(SITE_URL),
+    applicationName: SITE_NAME,
+    manifest: "/site.webmanifest",
+    icons: { apple: "/apple-touch-icon.png" },
+    robots: IS_INDEXABLE ? undefined : { index: false, follow: false },
+    verification: {
+      google: process.env.GOOGLE_SITE_VERIFICATION,
+      other: process.env.BING_SITE_VERIFICATION
+        ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION }
+        : undefined,
     },
   };
 }
 
+export const viewport: Viewport = { themeColor: "#1C2030" };
+
 export default async function RootLayout({ children, params }: LayoutProps<"/[lang]">) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
+  const dict = await getDictionary(lang);
 
   return (
     <html lang={lang} className={`${sora.variable} ${plexMono.variable}`}>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <JsonLd data={graph(organizationSchema(dict.meta.schema))} />
+        {children}
+        <Analytics dict={dict.consent} />
+      </body>
     </html>
   );
 }

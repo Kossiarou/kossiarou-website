@@ -39,6 +39,7 @@ export function Faq({ dict }: { dict: Dictionary["faq"] }) {
                 <button
                   type="button"
                   id={`faq-q-${i}`}
+                  data-track="faq_open"
                   aria-expanded={open}
                   aria-controls={`faq-a-${i}`}
                   onClick={() => setOpenIndex(open ? null : i)}

@@ -7,7 +7,17 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import { Logo } from "./Logo";
 import { LanguageToggle } from "./LanguageToggle";
 
-export function Header({ lang, dict }: { lang: Locale; dict: Dictionary["header"] }) {
+// `basePath` is "" on the home page (anchors stay on the page) and "/fr" on the other
+// pages, where the anchors lead back to the home page.
+export function Header({
+  lang,
+  dict,
+  basePath = "",
+}: {
+  lang: Locale;
+  dict: Dictionary["header"];
+  basePath?: string;
+}) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   // Below 800px the navigation is replaced by the burger menu (the design says 640px, but
@@ -27,7 +37,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: Dictionary["header"
   return (
     <header className="sticky top-0 z-20 border-b border-border bg-cream/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-[clamp(10px,2vw,24px)] px-[clamp(16px,4vw,40px)] py-3">
-        <Link href="#top" className="relative flex-none before:absolute before:inset-x-0 before:-inset-y-2">
+        <Link href={basePath || "#top"} className="relative flex-none before:absolute before:inset-x-0 before:-inset-y-2">
           <Logo size="header" />
         </Link>
         <div className="flex items-center gap-[clamp(6px,1.6vw,22px)]">
@@ -35,16 +45,16 @@ export function Header({ lang, dict }: { lang: Locale; dict: Dictionary["header"
             {dict.nav.map((link) => (
               <a
                 key={link.href}
-                href={link.href}
+                href={`${basePath}${link.href}`}
                 className="relative text-ink-soft before:absolute before:inset-x-0 before:-inset-y-2.5 hover:text-gold-text"
               >
                 {link.label}
               </a>
             ))}
           </nav>
-          <LanguageToggle lang={lang} label={dict.languageLabel} />
+          <LanguageToggle lang={lang} label={dict.languageLabel} homeOnly={Boolean(basePath)} />
           <a
-            href="#inscription"
+            href={`${basePath}#inscription`}
             className="flex-none whitespace-nowrap rounded-xl bg-gold px-[clamp(10px,2.6vw,18px)] py-2.5 text-[clamp(14px,3.6vw,15px)] font-bold text-ink hover:bg-gold-hover max-[359px]:hidden"
           >
             {dict.signup}
@@ -72,7 +82,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: Dictionary["header"
           {dict.nav.map((link) => (
             <a
               key={link.href}
-              href={link.href}
+              href={`${basePath}${link.href}`}
               onClick={() => setMenuOpen(false)}
               className="border-b border-[#ebe5d9] py-3.5 hover:text-gold-text"
             >
@@ -81,7 +91,7 @@ export function Header({ lang, dict }: { lang: Locale; dict: Dictionary["header"
           ))}
           {/* Under 360px the header button is hidden to keep the burger on screen. */}
           <a
-            href="#inscription"
+            href={`${basePath}#inscription`}
             onClick={() => setMenuOpen(false)}
             className="mt-3 hidden rounded-xl bg-gold px-4 py-3 text-center text-base font-bold text-ink hover:bg-gold-hover max-[359px]:block"
           >

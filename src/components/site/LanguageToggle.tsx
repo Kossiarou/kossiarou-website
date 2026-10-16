@@ -8,11 +8,21 @@ import { LOCALE_COOKIE, locales, type Locale } from "@/i18n/config";
  * FR/EN switch: links to the same page in the other language and remembers
  * the choice in a cookie so that a later visit to "/" opens in that language.
  */
-export function LanguageToggle({ lang, label }: { lang: Locale; label: string }) {
+export function LanguageToggle({
+  lang,
+  label,
+  homeOnly = false,
+}: {
+  lang: Locale;
+  label: string;
+  /** The page only exists in French: the other language leads to its home page. */
+  homeOnly?: boolean;
+}) {
   const pathname = usePathname();
   const router = useRouter();
 
   const hrefFor = (target: Locale) => {
+    if (homeOnly) return `/${target}`;
     const segments = pathname.split("/");
     segments[1] = target;
     return segments.join("/");

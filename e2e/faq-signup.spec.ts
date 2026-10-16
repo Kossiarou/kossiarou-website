@@ -38,7 +38,7 @@ for (const lang of LANGS) {
       await expect(page.getByRole("button", { name: `${s.submit}${s.submitAmbassadorSuffix}` })).toBeVisible();
     });
 
-    test("requires the first name and the number, then opens the right WhatsApp group", async ({ page }) => {
+    test("requires the first name and the number, then opens the WhatsApp group", async ({ page }) => {
       // No real window must open during the test: record the call instead.
       await page.addInitScript(() => {
         (window as unknown as { __opened: string[] }).__opened = [];
@@ -63,12 +63,12 @@ for (const lang of LANGS) {
       expect(opened).toHaveLength(1);
       expect(opened[0]).toMatch(/^https:\/\/chat\.whatsapp\.com\//);
 
-      // The ambassador list opens a different group.
+      // The ambassador list also opens the group (there is a single group link for now).
       await page.getByRole("button", { name: s.ambassador, exact: true }).click();
       await page.getByRole("button", { name: new RegExp(`^${s.submit}`) }).click();
       const after = await page.evaluate(() => (window as unknown as { __opened: string[] }).__opened);
       expect(after).toHaveLength(2);
-      expect(after[1]).not.toBe(after[0]);
+      expect(after[1]).toMatch(/^https:\/\/chat\.whatsapp\.com\//);
     });
   });
 }
