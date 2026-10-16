@@ -102,10 +102,16 @@ implemented.
 
 ## Signup form
 
-`src/components/site/SignupForm.tsx` opens the WhatsApp waiting group of the chosen list and shows a
-thank-you message, but **nothing is stored**: there is no back-end for the first name, country and
-goal. See the `TODO` in that file. Where the signups should go is still to be decided; the form
-will need field checks, error messages and spam protection once it is connected.
+`src/components/site/SignupForm.tsx` opens the WhatsApp group, then sends the details to
+`POST /api/waitlist` (`src/app/api/waitlist/route.ts`), which validates them and forwards them to
+`WAITLIST_WEBHOOK_URL`. **Without that variable nothing is stored**: set it in production to the
+tool that receives the signups. The form has a hidden honeypot field against robots.
+
+## SEO, SEA and AI search
+
+Technical SEO, landing pages, structured data, consent-gated measurement and the list of manual
+steps (Search Console, Bing, Ads) are described in [docs/SEO-SEA.md](docs/SEO-SEA.md). The landing,
+information and legal pages are French only and live in `src/content/landing-fr.ts`.
 
 ## Tests
 

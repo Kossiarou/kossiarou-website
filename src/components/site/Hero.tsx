@@ -1,7 +1,6 @@
 import Image from "next/image";
 import type { Dictionary } from "@/i18n/dictionaries";
-
-const CURRENCY_PAIRS = ["XOF → CNY", "XOF → EUR", "XOF → USD", "XOF → AED"];
+import { CONTACT } from "@/lib/site";
 
 export function Hero({ dict }: { dict: Dictionary["hero"] }) {
   return (
@@ -22,25 +21,30 @@ export function Hero({ dict }: { dict: Dictionary["hero"] }) {
           <p className="max-w-[560px] text-[19px] leading-[1.5] text-ink-soft">
             {dict.description}
           </p>
-          <div className="flex flex-wrap gap-2 font-mono text-sm">
-            {CURRENCY_PAIRS.map((pair) => (
-              <span
-                key={pair}
+          <ul
+            aria-label={dict.destinationsLabel}
+            className="flex flex-wrap gap-2 font-mono text-sm"
+          >
+            {dict.destinations.map((destination) => (
+              <li
+                key={destination}
                 className="whitespace-nowrap rounded-lg border border-border-soft bg-white px-2.5 py-1.5"
               >
-                {pair}
-              </span>
+                {destination}
+              </li>
             ))}
-          </div>
+          </ul>
           <div className="mt-1.5 flex flex-wrap gap-2.5">
             <a
-              href="#listes"
+              href="#inscription"
               className="rounded-xl bg-gold px-[22px] py-3.5 text-base font-bold text-ink hover:bg-gold-hover min-[400px]:whitespace-nowrap"
             >
               {dict.primaryCta}
             </a>
             <a
-              href="#listes"
+              href={CONTACT.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-xl border border-border-soft bg-cream-soft px-[22px] py-[13px] text-base font-bold hover:bg-white min-[400px]:whitespace-nowrap"
             >
               {dict.secondaryCta}

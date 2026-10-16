@@ -1,0 +1,25 @@
+# Kossiarou
+
+> Kossiarou est une application mobile qui permet aux particuliers et aux commerçants d'Afrique de l'Ouest de payer à l'étranger (Europe, Chine, États-Unis, Dubaï) depuis leur téléphone, sans chercher les devises et sans intermédiaire. Signature : « Payez à l'étranger. Sans blocage. » Lancement au Bénin, puis en Côte d'Ivoire, au Burkina Faso, au Togo, au Mali et au Sénégal.
+
+Faits clés :
+- Éditeur : Kossiarou Technology SARL, Parakou (Bénin). « Kossiarou » signifie « paiement » en bariba.
+- Statut : bientôt disponible ; inscription des premiers utilisateurs ouverte sur https://www.kossiarou.com/fr
+- Usages : payer un fournisseur en Chine (CNY), payer la scolarité en France (EUR), voyager ou acheter à Dubaï (AED), payer aux États-Unis (USD).
+- Dépôts : Mobile Money (MTN MoMo, Moov, Orange, Wave) et banque, depuis des comptes au nom du client.
+- Fonctionnement : taux affiché avant validation, paiement par virement avec facture jointe, carte virtuelle pour le voyage et les achats en ligne.
+- Sécurité : vérification d'identité (pièce + selfie) pour chaque client, code secret à 6 chiffres à chaque opération.
+- Plafonds : Standard 2 000 000 FCFA par opération et 15 000 € par mois ; Pro et Business sur demande.
+- Contact : WhatsApp +33 7 45 54 37 36 · contact@kossiarou.com
+
+## Pages principales
+- [Accueil](https://www.kossiarou.com/fr): présentation, plafonds, FAQ, inscription
+- [Payer un fournisseur en Chine](https://www.kossiarou.com/fr/payer-fournisseur-chine)
+- [Payer la scolarité en France](https://www.kossiarou.com/fr/payer-scolarite-france)
+- [Payer à Dubaï](https://www.kossiarou.com/fr/payer-a-dubai)
+- [Payer aux États-Unis](https://www.kossiarou.com/fr/payer-aux-etats-unis)
+- [Questions fréquentes](https://www.kossiarou.com/fr/faq)
+
+## Optionnel
+- [English version](https://www.kossiarou.com/en)
+- [Programme ambassadeurs](https://www.kossiarou.com/fr/ambassadeurs)

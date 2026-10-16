@@ -2,6 +2,7 @@
 
 import { useRef, useState, type FormEvent } from "react";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { readUtm, trackEvent } from "@/lib/analytics";
 
 const COUNTRY_CODES = [
   { code: "BJ", dial: "+229" },
@@ -29,14 +30,33 @@ export function SignupForm({ dict }: { dict: Dictionary["signup"] }) {
       active ? "bg-cream text-ink" : "bg-transparent text-dark-text"
     }`;
 
-  // TODO: no backend/webhook exists yet to store signup details (name,
-  // country, intent) — see kossiarou-api's provider stubs for the same
-  // "not wired up yet" pattern used elsewhere in this project. The WhatsApp
-  // group redirect below works today regardless.
+  // The WhatsApp group opens first, inside the click, so that browsers do not block the new
+  // tab. The details then go to /api/waitlist; a failure there never stops the visitor.
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    const eventId = crypto.randomUUID();
+    const intent = list === "user" ? String(data.get("intent") ?? "") : "";
     setSubmitted(true);
     window.open(WHATSAPP_GROUPS[list], "_blank", "noopener,noreferrer");
+    void fetch("/api/waitlist", {
+      method: "POST",
+      keepalive: true,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        list,
+        firstName: data.get("firstName"),
+        country: data.get("country"),
+        whatsapp: data.get("whatsapp"),
+        intent,
+        website: data.get("website"),
+        page: window.location.pathname,
+        eventId,
+        utm: readUtm(),
+      }),
+    }).catch(() => {});
+    trackEvent("generate_lead", { list, intent }, eventId);
+    trackEvent("join_group", { list });
     if (resetTimeout.current) clearTimeout(resetTimeout.current);
     resetTimeout.current = setTimeout(() => setSubmitted(false), 4000);
   }
@@ -65,7 +85,7 @@ export function SignupForm({ dict }: { dict: Dictionary["signup"] }) {
 
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-3.5 rounded-[20px] border border-dark-border bg-dark-surface p-[22px]"
+          className="relative flex flex-col gap-3.5 rounded-[20px] border border-dark-border bg-dark-surface p-[22px]"
         >
           <div className="grid grid-cols-1 gap-1 rounded-xl bg-ink p-1 min-[360px]:grid-cols-2">
             <button
@@ -85,6 +105,16 @@ export function SignupForm({ dict }: { dict: Dictionary["signup"] }) {
               {dict.ambassador}
             </button>
           </div>
+
+          {/* Honeypot: invisible to people, filled in by robots. */}
+          <input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="absolute -left-[9999px] h-0 w-0 opacity-0"
+          />
 
           <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-3">
             <label className="flex flex-col gap-1.5 text-[13px] font-bold">
