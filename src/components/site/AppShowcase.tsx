@@ -4,7 +4,7 @@ type Screens = Dictionary["app"]["screens"];
 
 function PhoneFrame({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex h-[490px] w-60 flex-col gap-2 rounded-[38px] border-8 border-ink bg-cream px-3 pt-[30px] pb-3 text-left shadow-[0_20px_40px_rgba(30,34,51,0.14)]">
+    <div aria-hidden="true" className="flex h-[490px] w-60 flex-col gap-2 rounded-[38px] border-8 border-ink bg-cream px-3 pt-[30px] pb-3 text-left shadow-[0_20px_40px_rgba(30,34,51,0.14)]">
       {children}
     </div>
   );
@@ -97,7 +97,7 @@ function ConvertScreen({ dict }: { dict: Screens["convert"] }) {
         </div>
         <div className="flex items-center justify-between">
           <span className="text-[9px] font-bold">{dict.delay}</span>
-          <span className="rounded-full bg-success-soft px-1.5 py-0.5 text-[9px] font-bold text-success">
+          <span className="rounded-full bg-success-soft px-1.5 py-0.5 text-[9px] font-bold text-success-text">
             {dict.instant}
           </span>
         </div>
@@ -120,7 +120,7 @@ function SendScreen({ dict }: { dict: Screens["send"] }) {
       <div className="flex flex-col gap-[3px] rounded-[10px] border border-border bg-white px-2.5 py-2">
         <div className="flex items-center justify-between">
           <span className="text-[11px] font-bold">{dict.beneficiary}</span>
-          <span className="rounded-full bg-success-soft px-1.5 py-0.5 text-[8px] font-bold text-success">
+          <span className="rounded-full bg-success-soft px-1.5 py-0.5 text-[8px] font-bold text-success-text">
             {dict.verified}
           </span>
         </div>
@@ -131,7 +131,7 @@ function SendScreen({ dict }: { dict: Screens["send"] }) {
         <span className="font-mono text-[15px]">{dict.amountValue}</span>
       </div>
       <div className="flex flex-col gap-[3px] rounded-[10px] bg-success-soft px-2.5 py-2">
-        <span className="text-[8px] font-bold text-success">{dict.invoice}</span>
+        <span className="text-[8px] font-bold text-success-text">{dict.invoice}</span>
         <span className="text-[10px]">{dict.invoiceFile}</span>
       </div>
       <div className="flex items-center gap-2 rounded-[10px] border border-border bg-white px-2.5 py-[7px]">
@@ -164,7 +164,7 @@ function CardScreen({ dict }: { dict: Screens["card"] }) {
       <div className="flex flex-col gap-[3px] rounded-[10px] border border-border bg-white px-2.5 py-2">
         <div className="flex items-center justify-between">
           <span className="text-[9px] text-[#555a69]">{dict.onSitePayment}</span>
-          <span className="rounded-full bg-success-soft px-1.5 py-0.5 text-[8px] font-bold text-success">
+          <span className="rounded-full bg-success-soft px-1.5 py-0.5 text-[8px] font-bold text-success-text">
             {dict.noFees}
           </span>
         </div>

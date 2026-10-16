@@ -12,9 +12,11 @@ const COUNTRY_CODES = [
   { code: "TG", dial: "+228" },
 ];
 
+const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/LBlm1IMzuMvHcX1fQZjwfl?s=cl&p=i&ilr=4&iam=2";
+
 const WHATSAPP_GROUPS = {
-  user: "https://chat.whatsapp.com/LrMVOKBlhzQ4wUOAniwMgL?s=cl&p=i&mlu=4&ilr=4",
-  amb: "https://chat.whatsapp.com/GOMZi9L59jvAGueaQITRe8?s=cl&p=i&mlu=4&ilr=4",
+  user: WHATSAPP_GROUP_URL,
+  amb: WHATSAPP_GROUP_URL,
 };
 
 export function SignupForm({ dict }: { dict: Dictionary["signup"] }) {
@@ -65,9 +67,10 @@ export function SignupForm({ dict }: { dict: Dictionary["signup"] }) {
           onSubmit={handleSubmit}
           className="flex flex-col gap-3.5 rounded-[20px] border border-dark-border bg-dark-surface p-[22px]"
         >
-          <div className="grid grid-cols-2 gap-1 rounded-xl bg-ink p-1">
+          <div className="grid grid-cols-1 gap-1 rounded-xl bg-ink p-1 min-[360px]:grid-cols-2">
             <button
               type="button"
+              aria-pressed={list === "user"}
               className={segmentClass(list === "user")}
               onClick={() => setList("user")}
             >
@@ -75,6 +78,7 @@ export function SignupForm({ dict }: { dict: Dictionary["signup"] }) {
             </button>
             <button
               type="button"
+              aria-pressed={list === "amb"}
               className={segmentClass(list === "amb")}
               onClick={() => setList("amb")}
             >
@@ -87,14 +91,20 @@ export function SignupForm({ dict }: { dict: Dictionary["signup"] }) {
               {dict.firstName}
               <input
                 required
+                name="firstName"
+                autoComplete="given-name"
                 placeholder={dict.firstNamePlaceholder}
-                className="h-[46px] rounded-[10px] border border-dark-border bg-ink px-3 text-[15px] text-cream outline-none focus:border-gold"
+                className="h-[46px] rounded-[10px] border border-field-border bg-ink px-3 text-[15px] text-cream focus:border-gold"
               />
             </label>
             <label className="flex flex-col gap-1.5 text-[13px] font-bold">
               {dict.whatsapp}
-              <div className="flex h-[46px] overflow-hidden rounded-[10px] border border-dark-border bg-ink">
-                <select className="border-r border-dark-border bg-transparent px-2 font-mono text-sm text-cream outline-none">
+              <div className="flex h-[46px] overflow-hidden rounded-[10px] border border-field-border bg-ink focus-within:border-gold focus-within:outline-3 focus-within:outline-offset-2 focus-within:outline-gold">
+                <select
+                  name="country"
+                  aria-label={dict.countryCode}
+                  className="border-r border-field-border bg-transparent px-2 font-mono text-sm text-cream outline-none"
+                >
                   {COUNTRY_CODES.map((c) => (
                     <option key={c.code}>
                       {c.code} {c.dial}
@@ -103,6 +113,11 @@ export function SignupForm({ dict }: { dict: Dictionary["signup"] }) {
                 </select>
                 <input
                   required
+                  type="tel"
+                  inputMode="tel"
+                  name="whatsapp"
+                  autoComplete="tel-national"
+                  aria-label={dict.whatsapp}
                   placeholder={dict.whatsappPlaceholder}
                   className="min-w-0 flex-1 bg-transparent px-2.5 font-mono text-sm text-cream outline-none"
                 />
@@ -113,7 +128,10 @@ export function SignupForm({ dict }: { dict: Dictionary["signup"] }) {
           {list === "user" && (
             <label className="flex flex-col gap-1.5 text-[13px] font-bold">
               {dict.intentLabel}
-              <select className="h-[46px] rounded-[10px] border border-dark-border bg-ink px-3 text-[15px] text-cream outline-none">
+              <select
+                name="intent"
+                className="h-[46px] rounded-[10px] border border-field-border bg-ink px-3 text-[15px] text-cream focus:border-gold"
+              >
                 {dict.intents.map((intent) => (
                   <option key={intent}>{intent}</option>
                 ))}
@@ -123,12 +141,16 @@ export function SignupForm({ dict }: { dict: Dictionary["signup"] }) {
 
           <button
             type="submit"
-            className="h-12 overflow-hidden rounded-xl bg-gold px-4 text-base font-bold text-ellipsis whitespace-nowrap text-ink hover:bg-gold-hover"
+            className="min-h-12 rounded-xl bg-gold px-4 py-2 text-base font-bold text-ink hover:bg-gold-hover sm:overflow-hidden sm:text-ellipsis sm:whitespace-nowrap"
           >
             {submitted
               ? dict.thanks
               : `${dict.submit}${list === "amb" ? dict.submitAmbassadorSuffix : ""}`}
           </button>
+          {/* Announces the confirmation to screen readers (the button label also changes). */}
+          <span role="status" className="sr-only">
+            {submitted ? dict.thanks : ""}
+          </span>
           <span className="text-xs text-dark-text-soft">{dict.referral}</span>
         </form>
       </div>

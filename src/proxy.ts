@@ -36,6 +36,6 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // Skip Next internals and any path with a file extension (images, icons, etc.).
-  matcher: ["/((?!_next|assets|.*\..*).*)"],
+  // Skip Next internals and any path with a file extension (images, icons, etc.). [.] is a literal dot.
+  matcher: ["/((?!_next|assets|.*[.].*).*)"],
 };

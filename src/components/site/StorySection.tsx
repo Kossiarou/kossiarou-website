@@ -1,22 +1,36 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type KeyboardEvent } from "react";
 import Image from "next/image";
 import type { Dictionary } from "@/i18n/dictionaries";
 
 // Language-neutral settings per scenario, in the same order as `dict.scenarios`.
-// Only story-cny.png exists for now: every scenario reuses it as a placeholder.
+// Photos live in public/assets (story-cny/eur/aed/usd.png): to swap one, keep the file name.
 const SCENARIO_META = [
   { code: "CNY", ref: "KSR-2026-0948", image: "/assets/story-cny.png" },
-  { code: "EUR", ref: "KSR-2026-1204", image: "/assets/story-cny.png" },
-  { code: "AED", ref: "KSR-2026-1377", image: "/assets/story-cny.png" },
-  { code: "USD", ref: "KSR-2026-1561", image: "/assets/story-cny.png" },
+  { code: "EUR", ref: "KSR-2026-1207", image: "/assets/story-eur.png" },
+  { code: "AED", ref: "KSR-2026-1531", image: "/assets/story-aed.png" },
+  { code: "USD", ref: "KSR-2026-2277", image: "/assets/story-usd.png" },
 ];
 
 export function StorySection({ dict }: { dict: Dictionary["story"] }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const scenario = dict.scenarios[activeIndex];
   const meta = SCENARIO_META[activeIndex];
+
+  // Keyboard model of ARIA tabs: arrows move (and wrap), Home/End jump to the ends.
+  function handleTabKeys(e: KeyboardEvent<HTMLDivElement>) {
+    const last = dict.scenarios.length - 1;
+    let next: number | null = null;
+    if (e.key === "ArrowRight") next = activeIndex === last ? 0 : activeIndex + 1;
+    else if (e.key === "ArrowLeft") next = activeIndex === 0 ? last : activeIndex - 1;
+    else if (e.key === "Home") next = 0;
+    else if (e.key === "End") next = last;
+    if (next === null) return;
+    e.preventDefault();
+    setActiveIndex(next);
+    document.getElementById(`story-tab-${SCENARIO_META[next].code}`)?.focus();
+  }
 
   return (
     <section id="histoires" className="bg-ink text-cream">
@@ -30,7 +44,12 @@ export function StorySection({ dict }: { dict: Dictionary["story"] }) {
         <p className="max-w-[660px] text-[19px] leading-[1.5] text-dark-text-body">
           {dict.description}
         </p>
-        <div role="tablist" aria-label={dict.tabsLabel} className="mt-[18px] flex flex-wrap gap-2">
+        <div
+          role="tablist"
+          aria-label={dict.tabsLabel}
+          onKeyDown={handleTabKeys}
+          className="mt-[18px] flex flex-wrap gap-2"
+        >
           {dict.scenarios.map((d, i) => {
             const active = i === activeIndex;
             const code = SCENARIO_META[i].code;
@@ -42,11 +61,12 @@ export function StorySection({ dict }: { dict: Dictionary["story"] }) {
                 id={`story-tab-${code}`}
                 aria-selected={active}
                 aria-controls="story-panel"
+                tabIndex={active ? 0 : -1}
                 onClick={() => setActiveIndex(i)}
                 className={`flex cursor-pointer items-center gap-2.5 rounded-full py-1.5 pr-4 pl-1.5 text-[15px] font-bold transition-colors ${
                   active
                     ? "bg-cream text-ink"
-                    : "border border-dark-border text-cream hover:bg-dark-surface"
+                    : "border border-dark-border text-cream hover:border-gold"
                 }`}
               >
                 <span
@@ -65,11 +85,14 @@ export function StorySection({ dict }: { dict: Dictionary["story"] }) {
         <div
           id="story-panel"
           role="tabpanel"
+          tabIndex={0}
           aria-labelledby={`story-tab-${meta.code}`}
           className="mt-2.5 grid grid-cols-[repeat(auto-fit,minmax(min(100%,460px),1fr))] gap-12"
         >
           <div className="flex flex-col gap-4 pt-1.5">
-            <h3 className="text-4xl leading-[1.05] tracking-[-0.025em]">{scenario.title}</h3>
+            <h3 className="text-[clamp(26px,9vw,36px)] leading-[1.05] tracking-[-0.025em] [overflow-wrap:anywhere]">
+              {scenario.title}
+            </h3>
             <span className="font-mono text-[13px] text-dark-text-soft">{scenario.persona}</span>
             <p className="text-lg leading-[1.55] text-dark-text">{scenario.description}</p>
             <div className="mt-2.5 flex flex-col">
@@ -96,14 +119,20 @@ export function StorySection({ dict }: { dict: Dictionary["story"] }) {
 
           <div className="relative min-h-[560px] pb-[120px]">
             <div className="relative h-[430px] w-full overflow-hidden rounded-[18px]">
-              <Image src={meta.image} alt="" fill className="object-cover" />
+              <Image
+                src={meta.image}
+                alt={scenario.imageAlt}
+                fill
+                sizes="(min-width: 1000px) 540px, 100vw"
+                className="object-cover"
+              />
             </div>
             <div className="absolute inset-x-4 bottom-0 flex flex-col gap-3 rounded-[18px] bg-cream px-5 pt-5 pb-4 text-ink shadow-[0_20px_50px_rgba(0,0,0,0.35)]">
               <div className="flex items-center justify-between">
                 <span className="flex items-center gap-2 text-[15px] font-bold">kossiarou</span>
                 <span className="font-mono text-xs text-[#555a69]">{meta.ref}</span>
               </div>
-              <span className="flex w-fit items-center gap-1.5 rounded-full bg-success-soft px-2.5 py-[3px] text-[13px] font-bold text-success">
+              <span className="flex w-fit items-center gap-1.5 rounded-full bg-success-soft px-2.5 py-[3px] text-[13px] font-bold text-success-text">
                 <span className="h-[7px] w-[7px] rounded-full bg-success" />
                 {scenario.receipt.status}
               </span>

@@ -25,10 +25,30 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
   const dict = await getDictionary(lang);
+  const image = {
+    url: "/assets/og-image.png",
+    width: 1200,
+    height: 630,
+    alt: dict.meta.ogImageAlt,
+  };
   return {
+    // Absolute base so og:image becomes an absolute URL. Set NEXT_PUBLIC_SITE_URL in production.
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://kossiarou.com"),
     title: dict.meta.title,
     description: dict.meta.description,
     alternates: { languages: { fr: "/fr", en: "/en" } },
+    openGraph: {
+      type: "website",
+      title: dict.meta.ogTitle,
+      description: dict.meta.ogDescription,
+      images: [image],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: dict.meta.ogTitle,
+      description: dict.meta.ogDescription,
+      images: [image],
+    },
   };
 }
 
